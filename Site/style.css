@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: black;
+  }
+  
+  .container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+  }
+  
+  .header {
+    border-bottom: 3px solid red;
+  }
+  
+  .header .container {
+    justify-content: space-between;
+  }
+  
+  .header a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .navbar {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    color: red;
+  }
+  
+  .titulo {
+    color: white;
+    width: fit-content;
+    font-weight: 500;
+  }
