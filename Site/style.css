@@ -2,30 +2,23 @@ body {
     margin: 0;
     padding: 0;
     background-color: #000000;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   
   /* INICIO NAVBAR */
-  .container {
-    width: 80%;
-    margin: auto;
-    display: flex;
-  }
-  
   .header {
     border-bottom: 3px solid #FF0000;
   }
   
-  .header .container {
+  .container {
+    width: 80%;
+    margin: auto;
+    display: flex;
     justify-content: space-between;
   }
   
-  .header a {
-    text-decoration: none;
-    color: #FFFFF0;
-  }
-
-  .titulo {
+  
+  .header .container .titulo {
     color: #FFFFF0;
     width: fit-content;
   }
@@ -40,31 +33,82 @@ body {
     font-size: 20px;
   }
   
+  .navbar a {
+    text-decoration: none;
+    color: #FFFFF0;
+  }
   /* FIM  NAVBAR */
 
-  /* INICIO INFO */
+
+  /* INICIO BANNER */
   .slogan {
     width: 100%;
-    height: 600px;
-    display: flex;
-  }
-  
-  .banner {
-    width: 100%;
+    height: 700px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
   }
-
-  .banner .img {
+  
+  .slogan .img {
     width: 80%;
     align-items: center;
     margin-top: 20px;
   }
 
-  .banner .titulo{
+  .banner .container .slogan .titulo{
+    color: #FFFFF0;
     width: 20%;
     font-size: 40px;
   }
+  /* FIM BANNER */
+
+
+  /* INICIO INFO */
+    .info {
+      background-color:#FFFFF0;
+    }
+  
+    .info .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info .container .titulo {
+      margin: 30px;
+      font-size: 30px;
+      color: #FF0000;
+      display: flex;
+      justify-content: center;
+    }
+
+    .box {
+      width: 100%;
+      height: 300px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .boxes {
+      width: 30%;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    .gifs {
+      width: 70px;
+      height: 50px;
+    }
+
+    .boxes p {
+      color:#000000;
+      font-size: 30px;
+      justify-content: center;
+    }
   /* FIM INFO */
