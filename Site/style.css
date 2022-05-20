@@ -45,7 +45,6 @@ body {
     align-items: center;
     justify-content: space-between;
     list-style: none;
-    color: #B52B2B;
     font-size: 20px;
     font-weight: 600;
   }
@@ -54,10 +53,14 @@ body {
     text-decoration: none;
     color: #FFFFFF;
   }
+
+  .local {
+    color: #B52B2B;
+  }
   /* FIM  NAVBAR */
 
 
-  /* INICIO BANNER */
+  /* INICIO BANNER HOME*/
   .slogan {
     width: 100%;
     height: 650px;
@@ -73,10 +76,10 @@ body {
   .slogan .titulo {
     color: #FFFFFF;
   }
-  /* FIM BANNER */
+  /* FIM BANNER HOME*/
 
 
-  /* INICIO INFO */
+  /* INICIO INFO HOME*/
   .infos .container {
     display: flex;
     flex-direction: column;
@@ -88,7 +91,6 @@ body {
     color: #000000;
     font-style: italic;
   }
-
   
   .infos .boxes {
     width: 100%;
@@ -114,7 +116,12 @@ body {
   .espaco_botao {
     margin: 50px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .espaco_botao .texto {
+    font-style: italic;
   }
 
   .botao {
@@ -125,5 +132,56 @@ body {
     background-color: #B52B2B;
     color: #FFFFFF;
     font-size: 20px;
+    text-align: center;
   }
-  /* FIM INFO */
+  /* FIM INFO HOME*/
+
+
+  /* INICIO FUNDO CONTEUDO */
+  .fundo {
+    margin-top: 80px;
+    width: 100%;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sel1 {
+    margin-top: 10px;
+    width: 300px;
+    border-radius: 20px;
+    border-color: #000000;
+    border-width: 3px;
+    background-color: #B52B2B;
+    color: #FFFFFF;
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  .gp {
+    width: 100%;
+    height: 800px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .gp1 {
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .informacoes {
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+  }
+
+  /* FIM FUNDO CONTEUDO */
