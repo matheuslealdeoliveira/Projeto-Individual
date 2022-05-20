@@ -8,16 +8,6 @@
 
 /* FONTES */
   @font-face {
-    font-family: OpenSans;
-    src: url(fontes/OpenSans-Regular.ttf);
-  }
-
-  @font-face {
-    font-family: Koulen;
-    src: url(fontes/Koulen-Regular.ttf);
-  }
-
-  @font-face {
     font-family: Roboto;
     src: url(fontes/Roboto-Regular.ttf);
   }
