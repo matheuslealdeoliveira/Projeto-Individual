@@ -118,7 +118,7 @@ body {
   }
   
   .espaco_botao {
-    margin: 50px;
+    margin: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -139,7 +139,7 @@ body {
   }
   /* FIM INFO HOME*/
 
-  /* INICIO CADASTRO */
+  /* INICIO CADASTRO E LOGIN */
   .banner2 {
     height: 89vh;
     background-image: url(img/Carros.png);    
@@ -153,11 +153,61 @@ body {
     justify-content: center;
   }
   
-  .cadastro {
+  .formulario {
     margin-top: 30px;
-    width: 50%;
+    width: 38%;
     height: 500px;
     background-color: #FFFFFF;
     border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-  /* FIM CADASTRO */
+
+  .formulario .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10px;
+    width: 80%;
+    height: 60px;
+    border-radius: 30px;
+  }
+
+  .formulario .titulo {
+    margin-top: 20px;
+    text-align: center;
+    width: 70%;
+    font-size: 25px;
+    color: #B52B2B;
+  }
+
+  .formulario .subtitulo {
+    font-size: 20px;
+    color: #000000;
+  }
+
+  .formulario .input {
+    text-align: center;
+    width: 60%;
+    font-size: 20px;
+  }
+  
+  .formulario .link {
+    font-size: 18px;
+    color: #929292;
+  }
+
+  .box .botao {
+      width: 80px;
+      border: 3px solid #000000;
+      border-radius: 20px;
+      background-color: #B52B2B;
+      color: #FFFFFF;
+      font-size: 10px;
+      text-align: center;
+  }
+
+  /* FIM CADASTRO E LOGIN*/
