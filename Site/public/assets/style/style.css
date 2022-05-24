@@ -1,6 +1,5 @@
 /* CORES */
 /*  Cinza = #929292 
-    CinzaClaro #E7EAD9
     Vermelho #B52B2B
     Branco #FFFFFF
     Preto #000000 */
@@ -9,7 +8,7 @@
 /* FONTES */
   @font-face {
     font-family: Roboto;
-    src: url(fontes/Roboto-Regular.ttf);
+    src: url(../fonts/Roboto-Regular.ttf);
   }
 /* FONTES */
 
@@ -118,7 +117,7 @@ body {
   }
   
   .espaco_botao {
-    margin: 20px;
+    padding-bottom: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -129,7 +128,7 @@ body {
   }
 
   .botao {
-    width: 300px;
+    width: 200px;
     border: 3px solid #000000;
     border-radius: 20px;
     background-color: #B52B2B;
@@ -139,10 +138,10 @@ body {
   }
   /* FIM INFO HOME*/
 
-  /* INICIO CADASTRO E LOGIN */
+  /* INICIO CADASTRO*/
   .banner2 {
-    height: 91vh;
-    background-image: url(img/Carros.png);    
+    height: 90vh;
+    background-image: url(../img/Carros.png);    
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: 100%;
@@ -151,21 +150,22 @@ body {
   .banner2 .container {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
   
-  .formulario {
+  .cadastro {
     margin-top: 30px;
-    width: 38%;
+    width: 35%;
     height: 500px;
     background-color: #FFFFFF;
     border-radius: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
   }
 
-  .formulario .box {
+  .cadastro .box {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -176,26 +176,27 @@ body {
     border-radius: 30px;
   }
 
-  .formulario .titulo {
+  .cadastro .titulo {
     margin-top: 20px;
     text-align: center;
     width: 70%;
-    font-size: 25px;
+    font-size: 20px;
     color: #B52B2B;
   }
 
-  .formulario .subtitulo {
+  .cadastro .subtitulo {
     font-size: 20px;
     color: #000000;
   }
 
-  .formulario .input {
+  .cadastro .input {
+    border-radius: 10px;
     text-align: center;
     width: 60%;
-    font-size: 20px;
+    font-size: 18px;
   }
   
-  .formulario .link {
+  .cadastro .link {
     font-size: 18px;
     color: #929292;
   }
@@ -210,4 +211,56 @@ body {
       text-align: center;
   }
 
-  /* FIM CADASTRO E LOGIN*/
+  /* FIM CADASTRO*/
+
+  /* INICIO LOGIN */
+  .login {
+    margin-top: 100px;
+    width: 35%;
+    height: 350px;
+    background-color: #FFFFFF;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .login .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10px;
+    width: 80%;
+    height: 60px;
+    border-radius: 30px;
+  }
+
+  .login .titulo {
+    margin-top: 20px;
+    text-align: center;
+    width: 70%;
+    font-size: 20px;
+    color: #B52B2B;
+  }
+
+  .login .subtitulo {
+    font-size: 20px;
+    color: #000000;
+  }
+
+  .login .input {
+    border-radius: 10px;
+    text-align: center;
+    width: 60%;
+    font-size: 18px;
+  }
+  
+  .login .link {
+    font-size: 18px;
+    color: #929292;
+  }
+  /* FIM LOGIN */
+
+

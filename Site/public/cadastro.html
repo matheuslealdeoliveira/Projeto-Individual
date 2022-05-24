@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Login</title>
+    <link rel="stylesheet" href="assets/style/style.css">
+    <title>Cadastro</title>
 </head>
 <body>
 
@@ -20,22 +20,26 @@
               <li>
                 <a href="home.html">Home</a>
               </li>
-              <li class="local">Login
-                <a href="login.html"></a>
-              </li>
               <li>
-                <a href="cadastro.html">Cadastro</a>
+                <a href="login.html">Login</a>
+              </li>
+              <li  class="local"> Cadastro
+                <a href="cadastro.html"></a>
               </li>
           </ul>
         </div>
-    </div>
+    </div>  
 
     <div class="banner2"> 
       <div class="container">
-        <div class="formulario">
-          
-          <span class="titulo">Faça o login e acesse sua página</span>
+        <div class="cadastro">
 
+          <span class="titulo">Se cadastre e tenha acesse ao nosso conteúdo</span>
+
+          <div class="box">
+            <span class="subtitulo">Nome</span>
+            <input class="input" type="text" placeholder="Seu Nome">
+          </div>
           <div class="box">
             <span class="subtitulo">E-mail</span>
             <input class="input" type="text" placeholder="seu.email@email.com">
@@ -45,11 +49,15 @@
             <input class="input" type="password" placeholder="********">
           </div>
           <div class="box">
-            <span class="link">Ainda não é cadastrado?</span>
-            <button class="botao"> <a href="cadastro.html">Cadastrar-se</a></button>
+            <span class="subtitulo">Confirme a senha</span>
+            <input class="input" type="password" placeholder="********">
+          </div>
+          <div class="box">
+            <span class="link">Já é cadastrado?</span>
+            <button class="botao"> <a href="login.html">Faça login</a></button>
           </div>
           <div class="espaco_botao">
-            <button class="botao">Entrar</button> 
+            <button class="botao">Cadastre-se</button> 
           </div>
         </div>
       </div>
