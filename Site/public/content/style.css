@@ -1,14 +1,15 @@
 /* CORES */
 /* Cinza-claro #DCDCDC
-Verde-azulado #2F4F4F
 Cinza-escuro #363636 
-Preto #000000*/
+VerdeLima #00FF00
+Preto #000000
+Branco #FFFFFF*/
 /* CORES */
 
 /* FONTES */
 @font-face {
     font-family: Roboto;
-    src: url(../assests/fonts/Roboto-Regular.ttf);
+    src: url(../assets/fonts/Roboto-Regular.ttf);
   }
 /* FONTES */
 
@@ -22,10 +23,6 @@ body {
 }
 
 /* INICIO NAVBAR */
-.local {
-    color: #B52B2B;
-  }
-
 .navbar {
     width: 20%;
     height: 100vh;
@@ -38,16 +35,26 @@ body {
 
 .perfil {
     width: 100%;
-    height: 30%;
+    height: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.icon {
+    height: 80px;
+}
+
+.titulo {
+    color: #FFFFFF;
+    font-size: 20px;
+    text-align: center;
 }
 
 .links {
     width: 100%;
-    height: 70%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,13 +64,176 @@ body {
 .topics {
     width: 100%;
     height: 60px;
-    background-color: aliceblue;
-    border: #B52B2B solid 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: #00FF00 solid 1px;
+}
+
+.atual {
+    width: 100%;
+    height: 60px;
+    background-color: #363636;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: #00FF00 solid 1px;
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.exit {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao {
+    width: 100px;
+    height: 30px;
+    border: 3px solid #FFFFFF;
+    border-radius: 20px;
+    background-color: #00FF00;
+    color: #000000;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
 }
 /* FIM NAVBAR */
 
-.info {
-    width: 80%;
+
+/* INICIO INFORMACOES CORRIDA*/
+.page {
+    width: 100%;
     height: 100vh;
     background-color: #363636;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.categoria {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.select {
+    margin-top: 30px;
+    width: 250px;
+    height: 30px;
+    border: 3px solid #FFFFFF;
+    border-radius: 20px;
+    background-color: #00FF00;
+    color: #000000;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+}
+
+#corrida {
+    margin-left: 200px;
+    width: 1000px;
+}
+
+.box {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: #FFFFFF solid 3px;
+    color: #FFFFFF
+}
+
+.img {
+    height: 60px;
+}
+
+.box .titulo {
+    height: 60px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;    
+}
+
+.box2 {
+    width: 80%;
+    display: flex;
+    border: #FFFFFF solid 3px;
+    color: #FFFFFF
+}
+
+.box2 .titulo {
+    width: 100%;
+    height: 50px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.br {
+    height: 40px;
+    background-color: #363636;
+}
+
+.box3 {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: #FFFFFF solid 3px;
+    color: #FFFFFF
+}
+
+.box3 .titulo1 {
+    width: 30%;
+    height: 50px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.box3 .titulo2 {
+    width: 70%;
+    height: 50px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+/* FIM INFORMACOES CORRIDA*/
+
+/* INICIO INFORMACAOES CAMPEOES */
+#campeoes {
+    margin-left: 200px;
+    width: 1000px;
+}
+
+.campeoes .box3 .titulo1 {
+    width: 30%;
+    height: 30px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+.campeoes .box3 .titulo2 {
+    width: 40%;
+    height: 30px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+/* FIM INFORMACAOES CAMPEOES */
