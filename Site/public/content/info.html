@@ -9,139 +9,207 @@
 </head>
 <body>
     
-    <div class="navbar">
-        
-        <div class="perfil">
-            <img class="icon" src="../assets/img/User.png">
-            <span class="titulo">Bem-vindo de volta!</span>
+    <div class="info">
+
+        <div class="navbar">
+            <div class="perfil">
+                <img class="icon" src="../assets/img/User.png">
+                <span class="titulo">Bem-vindo de volta!</span>
+            </div>
+
+            <div class="links">
+                <div class="atual">
+                    <span class="titulo"><a href="info.html">Informações </a></span>
+                </div>
+                <div class="topics">
+                    <span class="titulo"><a href="piloto.html">Pilotos</a></span>
+                </div>
+                <div class="topics">
+                    <span class="titulo"><a href="equipe.html">Equipes</a></span>
+                </div>
+                <div class="topics">
+                    <span class="titulo"><a href="quiz.html">Quiz</a></span>
+                </div>
+            </div>
+
+            <div class="exit">
+                <button class="botao">SAIR</button>
+            </div>
         </div>
 
-        <div class="links">
-            <div class="atual">
-                <span class="titulo"><a href="info.html">Informações </a></span>
-            </div>
-            <div class="topics">
-                <span class="titulo"><a href="piloto.html">Pilotos</a></span>
-            </div>
-            <div class="topics">
-                <span class="titulo"><a href="equipe.html">Equipes</a></span>
-            </div>
-            <div class="topics">
-                <span class="titulo"><a href="quiz.html">Quiz</a></span>
-            </div>
-        </div>
 
-        <div class="exit">
-            <button class="botao">SAIR</button>
+        <div class="page">
+            <div class="categoria">
+                <select id="sel1" class="select" onchange="select1()">
+                    <option value="1">Próxima Corrida</option>
+                    <option value="2">Maiores Campeões</option>
+                    <option value="3">Maiores Vencedores</option>
+                </select>
+            </div>
+
+            <div id="corrida" style="display: block">
+                <div class="content">
+                    <div class="box">
+                        <img class="img" src="../assets/img/Azerbaijao.png">
+                        <div class="titulo">GP do Azerbaijão</div>
+                    </div>
+                    <div class="box">
+                        <div class="titulo">Circuito Urbano de Baku</div>
+                    </div>
+                    <div class="box2">
+                        <div class="titulo">12-06-2022</div>
+                        <div class="titulo">Domingo | 10:00</div>
+                    </div>
+                    <div class="br">
+                    </div>
+                    <div class="box">
+                        <div class="titulo">Últimos Vencedores</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1">2021</div>
+                        <div class="titulo2"><img class="img" src="../assets/img/Mexico.png">Sergio Perez</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1">2020</div>
+                        <div class="titulo2">----</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1">2019</div>
+                        <div class="titulo2"><img class="img" src="../assets/img/Finlandia.png">Valtteri Bottas</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1">2018</div>
+                        <div class="titulo2"><img class="img" src="../assets/img/GraBretanha.png">Lewis Hamilton</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="campeoes" style="display: none">
+                <div class="content">
+                    <div class="box3">
+                        <div class="titulo1">PILOTO</div>
+                        <div class="titulo2">NOME</div>
+                        <div class="titulo1">CAMPEONATOS</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Hamilton.png"> </div>
+                        <div class="titulo2">Lewis Hamilton*</div>
+                        <div class="titulo1">7</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Schumacher.png"> </div>
+                        <div class="titulo2">Michael Schumacher</div>
+                        <div class="titulo1">7</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Fangio.png"> </div>
+                        <div class="titulo2">Juan Manuel Fangio</div>
+                        <div class="titulo1">5</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Prost.png"> </div>
+                        <div class="titulo2">Alan Prost</div>
+                        <div class="titulo1">4</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Vettel.png"> </div>
+                        <div class="titulo2">Sebastian Vettel*</div>
+                        <div class="titulo1">4</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Senna.png"> </div>
+                        <div class="titulo2">Ayton Senna</div>
+                        <div class="titulo1">3</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Piquet.png"> </div>
+                        <div class="titulo2">Nelson Piquet</div>
+                        <div class="titulo1">3</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Lauda.png"> </div>
+                        <div class="titulo2">Niki Lauda</div>
+                        <div class="titulo1">3</div>
+                    </div>   
+                </div>
+                <div class="titulo3">* Em atividade</div>   
+            </div>
+
+            
+            <div id="vencedores" style="display: none">
+                <div class="content">
+                    <div class="box3">
+                        <div class="titulo1">PILOTO</div>
+                        <div class="titulo2">NOME</div>
+                        <div class="titulo1">VITÓRIAS</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Hamilton.png"> </div>
+                        <div class="titulo2">Lewis Hamilton*</div>
+                        <div class="titulo1">103</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Schumacher.png"> </div>
+                        <div class="titulo2">Michael Schumacher</div>
+                        <div class="titulo1">91</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Vettel.png"> </div>
+                        <div class="titulo2">Sebastian Vettel*</div>
+                        <div class="titulo1">53</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Prost.png"> </div>
+                        <div class="titulo2">Alan Prost</div>
+                        <div class="titulo1">51</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Senna.png"> </div>
+                        <div class="titulo2">Ayrton Senna</div>
+                        <div class="titulo1">41</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Alonso.png"> </div>
+                        <div class="titulo2">Fernando Alonso*</div>
+                        <div class="titulo1">32</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Mansell.png"> </div>
+                        <div class="titulo2">Nigel Mansell</div>
+                        <div class="titulo1">31</div>
+                    </div>
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Stewart.png"> </div>
+                        <div class="titulo2">Jackie Stewart</div>
+                        <div class="titulo1">27</div>
+                    </div> 
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Clark.png"> </div>
+                        <div class="titulo2">Jim Clark</div>
+                        <div class="titulo1">25</div>
+                    </div> 
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Lauda.png"> </div>
+                        <div class="titulo2">Niki Lauda</div>
+                        <div class="titulo1">25</div>
+                    </div> 
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Fangio.png"> </div>
+                        <div class="titulo2">Juan Manuel Fangio</div>
+                        <div class="titulo1">24</div>
+                    </div> 
+                    <div class="box3">
+                        <div class="titulo1"> <img class="img" src="../assets/img/Verstappen.png"> </div>
+                        <div class="titulo2">Max Verstappen*</div>
+                        <div class="titulo1">24</div>
+                    </div>   
+                </div>
+                <div class="titulo3">* Em atividade</div>        
+            </div>
         </div>
 
     </div>
-
-
-    <div class="page">
-
-        <div class="categoria">
-            <select id="sel1" class="select" onchange="select1()">
-                <option value="1">Próxima Corrida</option>
-                <option value="2">Maiores Campeões</option>
-                <option value="3">Maiores Vencedores</option>
-            </select>
-        </div>
-
-        <div id="corrida" style="display: block">
-            <div class="content">
-                <div class="box">
-                    <img class="img" src="../assets/img/Azerbaijao.png">
-                    <div class="titulo">GP do Azerbaijão</div>
-                </div>
-                <div class="box">
-                    <div class="titulo">Circuito Urbano de Baku</div>
-                </div>
-                <div class="box2">
-                    <div class="titulo">12-06-2022</div>
-                    <div class="titulo">Domingo | 10:00</div>
-                </div>
-                <div class="br">
-                </div>
-                <div class="box">
-                    <div class="titulo">Últimos Vencedores</div>
-                </div>
-                <div class="box3">
-                    <div class="titulo1">2021</div>
-                    <div class="titulo2"><img class="img" src="../assets/img/Mexico.png">Sergio Perez</div>
-                </div>
-                <div class="box3">
-                    <div class="titulo1">2020</div>
-                    <div class="titulo2">----</div>
-                </div>
-                <div class="box3">
-                    <div class="titulo1">2019</div>
-                    <div class="titulo2"><img class="img" src="../assets/img/Finlandia.png">Valtteri Bottas</div>
-                </div>
-                <div class="box3">
-                    <div class="titulo1">2018</div>
-                    <div class="titulo2"><img class="img" src="../assets/img/GraBretanha.png">Lewis Hamilton</div>
-                </div>
-            </div>
-        </div>
-
-
-        <div id="campeoes" style="display: none">
-            <div class="content">
-                <div class="box3">
-                    <div class="titulo1">PILOTO</div>
-                    <div class="titulo2">NOME</div>
-                    <div class="titulo1">CAMPEONATOS</div>
-                </div>
-                <div class="box3">
-                    <div class="titulo1"></div>
-                    <div class="titulo2">Lewis Hamilton</div>
-                    <div class="titulo1">7</div>
-                </div>
-                <div class="box3">
-                    <div class="titulo1"></div>
-                    <div class="titulo2">Michael Schumacher</div>
-                    <div class="titulo1">7</div>
-                </div>
-                <div class="box3">
-                    <div class="titulo1"></div>
-                    <div class="titulo2">Juan Manuel Fangio</div>
-                    <div class="titulo1">5</div>
-                </div>
-                <div class="box3">
-                    <div class="titulo1"></div>
-                    <div class="titulo2">Alan Prost</div>
-                    <div class="titulo1">4</div>
-                </div>
-                <div class="box3">
-                    <div class="titulo1"></div>
-                    <div class="titulo2">Sebastian Vettel</div>
-                    <div class="titulo1">4</div>
-                </div>
-                <div class="box3">
-                    <div class="titulo1"></div>
-                    <div class="titulo2">Ayton Senna</div>
-                    <div class="titulo1">3</div>
-                </div>
-                <div class="box3">
-                    <div class="titulo1"></div>
-                    <div class="titulo2">Nelson Piquet</div>
-                    <div class="titulo1">3</div>
-                </div>
-                <div class="box3">
-                    <div class="titulo1"></div>
-                    <div class="titulo2">Niki Lauda</div>
-                    <div class="titulo1">3</div>
-                </div>   
-            </div>        
-        </div>
-
-        
-        <div id="vencedores" style="display: none">
-        </div>
-
-    </div>
-
 </body>
 </html>
 
