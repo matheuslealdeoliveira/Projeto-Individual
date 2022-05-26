@@ -138,8 +138,11 @@ a {
     text-align: center;
 }
 
-#corrida {
-    margin-left: 200px;
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 1000px;
 }
 
@@ -213,11 +216,6 @@ a {
 /* FIM INFORMACOES CORRIDA*/
 
 /* INICIO INFORMACAOES CAMPEOES */
-#campeoes {
-    margin-left: 200px;
-    width: 1000px;
-}
-
 .campeoes .box3 .titulo1 {
     width: 30%;
     height: 30px;
