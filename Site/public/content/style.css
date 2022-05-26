@@ -41,7 +41,7 @@ body {
     position: fixed;
 }
 
-.perfil {
+.navbar .perfil {
     width: 100%;
     height: 25%;
     display: flex;
@@ -50,17 +50,17 @@ body {
     justify-content: space-evenly;
 }
 
-.icon {
+.navbar .icon {
     height: 80px;
 }
 
-.titulo {
+.navbar .titulo {
     color: #FFFFFF;
     font-size: 20px;
     text-align: center;
 }
 
-.links {
+.navbar .links {
     width: 100%;
     height: 50%;
     display: flex;
@@ -69,7 +69,7 @@ body {
     justify-content: center;
 }
 
-.topics {
+.navbar .topics {
     width: 100%;
     height: 60px;
     display: flex;
@@ -78,7 +78,7 @@ body {
     border: #00FF00 solid 1px;
 }
 
-.atual {
+.navbar .atual {
     width: 100%;
     height: 60px;
     background-color: #363636;
@@ -93,7 +93,7 @@ a {
     color: #FFFFFF;
 }
 
-.exit {
+.navbar .exit {
     width: 100%;
     height: 25%;
     display: flex;
@@ -102,10 +102,10 @@ a {
     justify-content: center;
 }
 
-.botao {
+.navbar .botao {
     width: 100px;
     height: 30px;
-    border: 3px solid #FFFFFF;
+    border: #FFFFFF solid 3px;
     border-radius: 20px;
     background-color: #00FF00;
     color: #000000;
@@ -131,17 +131,16 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .select {
     margin-top: 30px;
     width: 250px;
     height: 30px;
-    border: 3px solid #FFFFFF;
+    border:#00FF00 solid 3px;
     border-radius: 20px;
-    background-color: #00FF00;
-    color: #000000;
+    background-color: #000000;
+    color: #FFFFFF;
     font-size: 20px;
     font-weight: 500;
     text-align: center;
@@ -157,7 +156,7 @@ a {
     width: 1000px;
 }
 
-.box {
+.content .box {
     width: 80%;
     display: flex;
     align-items: center;
@@ -166,18 +165,18 @@ a {
     color: #FFFFFF
 }
 
-.img {
+.content .img {
     height: 60px;
 }
 
-.box .titulo {
+.content .box .titulo {
     height: 60px;
     font-size: 30px;
     display: flex;
     align-items: center;    
 }
 
-.box2 {
+.content .box2 {
     width: 80%;
     display: flex;
     justify-content: space-evenly;
@@ -185,7 +184,7 @@ a {
     color: #FFFFFF
 }
 
-.box2 .titulo {
+.content .box2 .titulo {
     height: 50px;
     font-size: 30px;
     display: flex;
@@ -198,7 +197,7 @@ a {
     background-color: #363636;
 }
 
-.box3 {
+.content .box3 {
     width: 80%;
     display: flex;
     flex-direction: row;
@@ -208,7 +207,7 @@ a {
     color: #FFFFFF
 }
 
-.box3 .titulo1 {
+.content .box3 .titulo1 {
     width: 30%;
     height: 50px;
     font-size: 30px;
@@ -217,7 +216,7 @@ a {
     align-items: center;    
 }
 
-.box3 .titulo2 {
+.content .box3 .titulo2 {
     width: 70%;
     height: 50px;
     font-size: 30px;
@@ -295,3 +294,75 @@ a {
     align-items: center;  
 }
 /* FIM INFORMACAOES VENCEDORES */
+
+/* INICIO PILOTOS */
+.pilotos {
+    width: 99%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.pilotos .box {
+    width: 22%;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    background-color: #000000;
+    box-shadow: 5px 5px 5px #FFFFFF;
+    border-radius: 20px;
+}
+
+.nome {
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.nome .texto {
+    width: 75%;
+    height: 100px;
+    font-size: 30px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.nome .pais {
+    height: 45px;
+}
+
+.piloto {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+} 
+
+.piloto .img {
+    height: 180px;
+}
+
+.result {
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.piloto .texto {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+/* FIM PILOTOS */
