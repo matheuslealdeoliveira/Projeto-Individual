@@ -366,3 +366,72 @@ a {
     color: #FFFFFF;
 }
 /* FIM PILOTOS */
+
+/* INICIO EQUIPES */
+.equipes {
+    width: 99%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.equipes .box {
+    width: 47%;
+    height: 280px;
+    display: flex;
+    flex-direction: row;
+    background-color: #000000;
+    box-shadow: 5px 5px 5px #FFFFFF;
+    border-radius: 20px;
+}
+
+.equipe {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.equipe .nome {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 30px;
+    color: #FFFFFF;
+}
+
+.equipe .logo {
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+}
+
+.equipe .carro {
+    width: 100%;
+}
+
+.equipe2 {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.equipe2 .texto {
+    font-size: 12px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.equipe2 .pilotosequipe{
+    width: 40%;
+}
+/* FIM EQUIPES */
