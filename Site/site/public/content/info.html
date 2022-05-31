@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="./assets/js/funcoes.js"></script>
     <title>Informações</title>
 </head>
-<body>
+<body onload="validarSessao(), atualizacaoPeriodica()">
     
     <div class="info">
 
@@ -15,6 +16,7 @@
             <div class="perfil">
                 <img class="icon" src="../assets/img/User.png">
                 <span class="titulo">Bem-vindo de volta!</span>
+                <span id="b_usuario"></span>
             </div>
 
             <div class="links">

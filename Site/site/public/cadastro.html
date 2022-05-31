@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style/style.css">
+    <script src="./assets/js/funcoes.js"></script>
+    <title>Cadastro</title>
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+          <ul class="navbar">
+            <li>
+              <a href="">F1Tech</a>
+            </li>
+          </ul>
+          <ul class="navbar">
+              <li>
+                <a href="home.html">Home</a>
+              </li>
+              <li>
+                <a href="login.html">Login</a>
+              </li>
+              <li  class="local"> Cadastro
+                <a href="cadastro.html"></a>
+              </li>
+          </ul>
+        </div>
+    </div>  
+
+    <div class="banner2"> 
+      <div class="container">
+        <div class="cadastro">
+          <span class="titulo">Se cadastre e tenha acesse ao nosso conteúdo</span>
+
+          <div class="box">
+            <span class="subtitulo">Nome</span>
+            <input id="nome_input" class="input" type="text" placeholder="Seu Nome">
+          </div>
+          <div class="box">
+            <span class="subtitulo">E-mail</span>
+            <input id="email_input" class="input" type="text" placeholder="seu.email@email.com">
+          </div>
+          <div class="box">
+            <span class="subtitulo">Senha</span>
+            <input id="senha_input" class="input" type="password" placeholder="********">
+          </div>
+          <div class="box">
+            <span class="subtitulo">Confirme a senha</span>
+            <input id="confirmacao_senha_input" class="input" type="password" placeholder="********">
+          </div>
+          <div class="box">
+            <span id="mensagem_erro"></span>
+            <span class="link">Já é cadastrado?</span>
+            <button class="botao"> <a href="login.html">Faça login</a></button>
+          </div>
+          <div class="espaco_botao">
+            <button class="botao" onclick="cadastrar()">Cadastre-se</button> 
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>    
+</html>
+
+<script>
+  function cadastrar() {
+
+      //Recupere o valor da nova input pelo nome do id
+      // Agora vá para o método fetch logo abaixo
+      var nomeVar = nome_input.value;
+      var emailVar = email_input.value;
+      var senhaVar = senha_input.value;
+      var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+      if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+          mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+          return false;
+      }
+
+      // Enviando o valor da nova input
+      fetch("/usuarios/cadastrar", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+              // crie um atributo que recebe o valor recuperado aqui
+              // Agora vá para o arquivo routes/usuario.js
+              nomeServer: nomeVar,
+              emailServer: emailVar,
+              senhaServer: senhaVar
+          })
+      }).then(function (resposta) {
+
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+
+              mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+              setTimeout(() => {
+                  window.location = "login.html";
+              }, "2000")
+              
+              limparFormulario();
+          } else {
+              throw ("Houve um erro ao tentar realizar o cadastro!");
+          }
+      }).catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+      });
+
+      return false;
+  }
+
+</script>
