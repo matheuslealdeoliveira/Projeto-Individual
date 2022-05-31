@@ -57,6 +57,7 @@ body {
     background-image: url(../img/CarroMcLaren.png);
     background-repeat: no-repeat;
     background-size: 100%;
+    opacity: 0.9;
     background-position: 100%;
   }
 
@@ -70,15 +71,13 @@ body {
   }
 
   .slogan .titulo {
-    width: 55%;
+    width: 70%;
     height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 15px;
-    background-color: #000000;
-    color:#FFFFFF; 
-    font-size: 35px;
+    color: #FFFFFF;
+    font-size: 45px;
     font-weight: 900;
   }
   /* FIM BANNER HOME*/
@@ -199,9 +198,10 @@ body {
   }
 
   .cadastro .input {
-    border-radius: 10px;
+    border-radius: 30px;
     text-align: center;
-    width: 60%;
+    width: 80%;
+    height: 60px;
     font-size: 18px;
   }
   
@@ -226,7 +226,7 @@ body {
   .login {
     margin-top: 100px;
     width: 35%;
-    height: 350px;
+    height: 450px;
     background-color: #363636;
     border-radius: 40px;
     display: flex;
@@ -260,10 +260,12 @@ body {
   }
 
   .login .input {
-    border-radius: 10px;
+    border-radius: 30px;
     text-align: center;
-    width: 60%;
+    width: 80%;
+    height: 60px;
     font-size: 18px;
+
   }
   
   .login .link {
