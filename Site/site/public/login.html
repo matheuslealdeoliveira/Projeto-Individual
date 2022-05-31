@@ -45,7 +45,7 @@
             <input id="senha_input" class="input" type="password" placeholder="********">
           </div>
           <div class="box">
-            <span id="mensagem_erro"></span>
+            <span id="subtitulo" class="subtitulo"></span>
             <span class="link">Ainda não é cadastrado?</span>
             <button class="botao"> <a href="cadastro.html">Cadastrar-se</a></button>
           </div>
@@ -87,6 +87,9 @@
           console.log("ESTOU NO THEN DO entrar()!")
 
           if (resposta.ok) {
+
+            subtitulo.innerHTML = "Login realizado com sucesso";
+
               console.log(resposta);
 
               resposta.json().then(json => {
@@ -104,6 +107,8 @@
               });
 
           } else {
+
+            subtitulo.innerHTML = "Credenciais incorretas";
 
               console.log("Houve um erro ao tentar realizar o login!");
 
