@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../assets/style/stylecontent.css">
     <script src="./assets/js/funcoes.js"></script>
     <title>Quiz</title>
 </head>
@@ -40,8 +40,135 @@
 
 
     <div class="page">
-        
+        <div class="quiz">
+            <div id="instrucoes" style="display: block;">
+                <div class="instrucoes">
+                    <span class="titulo">Responda algumas perguntas e teste seu conhecimento</span>
+                </div>
+                <div class="instrucoes">
+                    <button class="botao" onclick="iniciar()">Iniciar Jogo</button>
+                </div>
+            </div>
+
+            <div id="game" style="display: none;">
+                <div class="respostas">
+                    <span id="pergunta" class="titulo"></span>
+                </div>
+                <div class="respostas">
+                    <div class="boxes">
+                        <div id="box1" onclick="erro1()">Ayrton Senna</div>
+                        <div id="box2" onclick="erro2()">Michael Schumacher</div>
+                    </div>
+                    <div class="boxes">
+                        <div id="box3" onclick="acerto()">Lewis Hamilton</div>
+                        <div id="box4" onclick="erro3()">Felipe Massa</div>
+                    </div>
+                </div>
+                <div class="respostas">
+                    <button class="botao" id="view" style="display: block;" onclick="ver()">Ver Resposta</button>
+                    <button class="botao" id="next" style="display: none;" onclick="proxima()">Próxima Pergunta</button>
+                </div>
+                <div class="respostas">
+                    <img id="img" src="">
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>
 </html>
+
+<script>
+
+    var vetorPerguntas = [
+    'Qual o piloto com mais vitórias na Fórmula 1?', 
+    // Lewis Hamilton
+    'Quais os dois pilotos com mais campeonatos mundiais?',
+    // Michael Schumacher e Lewis Hamilton
+    'Quantos títulos mundiais tem Ayrton Senna?',
+    // 3
+    'Quantos títulos mundiais tem Sebastian Vettel',
+    // 4
+    'Os pilotos da equipe Ferrari são:',
+    // Charles Leclerc e Carlos Sainz
+    'Qual opção possui apenas pilotos em atividade?',
+    // Mick Schumacher e Fernando Alonso
+    'Quem foi o maior rival de Ayrton Senna?',
+    // Alan Prost
+    'Por qual equipe corre o piloto Valterri Bottas?',
+    // Alfa Romeo
+    'Quantas vitórias Lewis Hamilton tem na Fórmula 1?',
+    // 103
+    'A equipe McLaren venceu o último campeonato de construtores.',
+    // Falso
+    ];
+
+    var index = 0
+    var validacao = 0
+    var numero = 0
+
+    function iniciar() {
+        instrucoes.style.display = 'none';
+        game.style.display = 'block';
+        pergunta.innerHTML = `${index + 1}- ${vetorPerguntas[index]}`;
+    }
+    
+    function erro1() {
+        validacao = 1
+        box1.style.backgroundColor = '#363636';
+        box2.style.backgroundColor = '#000000';
+        box3.style.backgroundColor = '#000000';
+        box4.style.backgroundColor = '#000000';
+    }
+    
+    function erro2() {
+        validacao = 1
+        box1.style.backgroundColor = '#000000';
+        box2.style.backgroundColor = '#363636';
+        box3.style.backgroundColor = '#000000';
+        box4.style.backgroundColor = '#000000';
+    }
+    
+    function erro3() {
+        validacao = 1
+        box1.style.backgroundColor = '#000000';
+        box2.style.backgroundColor = '#000000';
+        box3.style.backgroundColor = '#000000';
+        box4.style.backgroundColor = '#363636';
+    }
+    
+    function acerto() {
+        validacao = 2
+        box1.style.backgroundColor = '#000000';
+        box2.style.backgroundColor = '#000000';
+        box3.style.backgroundColor = '#363636';
+        box4.style.backgroundColor = '#000000';
+    }
+
+    function ver() {
+        if (validacao == 0) {
+            alert('Responda a questão antes de conferir');
+        }
+        if (validacao == 1) {
+            view.style.display = 'none';
+            next.style.display = 'block';
+            img.src = '../assets/img/Erro.gif';
+        }
+        if (validacao == 2) {
+            view.style.display = 'none';
+            next.style.display = 'block';
+            img.src = '../assets/img/Acerto.png';
+            numero ++
+        }
+    }
+
+    function proxima() {
+        index ++
+        view.style.display = 'block';
+        next.style.display = 'none';
+        img.src = '';
+        pergunta.innerHTML = `${index + 1}- ${vetorPerguntas[index]}`;
+    }
+
+</script>
+
