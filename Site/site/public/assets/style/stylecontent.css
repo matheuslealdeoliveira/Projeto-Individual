@@ -67,7 +67,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: #00FF00 solid 1px;
+    border-top: #00FF00 solid 1px;
+    border-bottom: #00FF00 solid 1px;
 }
 
 .navbar .atual {
@@ -77,7 +78,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: #00FF00 solid 1px;
+    border-top: #00FF00 solid 1px;
+    border-bottom: #00FF00 solid 1px;
 }
 
 a {
@@ -524,5 +526,137 @@ a {
 
 .respostas .img {
     height: 250px;
+}
+
+#resultado {
+    width: 100%;
+}
+
+.desempenho {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.titulodes {
+    width: 60%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #000000;
+    border: #FFFFFF solid 3px;
+}
+
+.titulodes .titulo {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+.kpis {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.kpi {
+    width: 60%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    border: #FFFFFF solid 3px;
+}
+
+.notas {
+    width: 60%;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #000000;
+    border-left: #FFFFFF solid 3px; 
+    border-right: #FFFFFF solid 3px; 
+}
+
+.notas .titulo {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 10px;
+}
+
+
+.desempenho1 {
+    width: 30%;
+    height: 60px;
+    background-color: #FFFFFF;
+    border: #000000 solid 3px;
+}
+
+.desempenho2 {
+    width: 30%;
+    height: 60px;
+    background-color: #363636;
+    border: #000000 solid 3px;
+}
+
+.desempenho3 {
+    width: 30%;
+    height: 60px;
+    background-color:#00FF00;
+    border: #000000 solid 3px;
+}
+
+.desempenho1, .desempenho3 {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: #000000;
+    font-size: 13px;
+}
+
+.desempenho2 {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 13px;
+}
+
+.pontuacao {
+    width: 60%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center; 
+}
+
+.pontuacao .titulo {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 22px;
 }
 /* FIM QUIZ */

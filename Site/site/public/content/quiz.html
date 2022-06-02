@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../assets/style/stylecontent.css">
     <script src="./assets/js/funcoes.js"></script>
     <title>Quiz</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     
@@ -67,10 +68,54 @@
                 <div class="respostas">
                     <button class="botao" id="view" style="display: block;" onclick="conferir()">Ver Resposta</button>
                     <button class="botao" id="next" style="display: none;" onclick="proxima()">Próxima Pergunta</button>
+                    <button class="botao" id="fim" style="display: none;" onclick="finalizar()">Ver Desempenho</button>
                 </div>
                 <div class="respostas">
                     <span id="feedback" class="titulo"></span>
                     <img id="img" class="img" src="">
+                </div>
+            </div>
+
+            <div id="resultado" style="display: none;">
+                <div class="desempenho">
+                    <div class="titulodes">
+                        <span class="titulo">Compare o seu o desempenho com os dados</span>
+                    </div>
+                </div>
+                <div class="kpis">
+                    <div class="notas">
+                        <span class="titulo">0</span>
+                        <span class="titulo">1</span>
+                        <span class="titulo">2</span>
+                        <span class="titulo">3</span>
+                        <span class="titulo">4</span>
+                        <span class="titulo">5</span>
+                        <span class="titulo">6</span>
+                        <span class="titulo">7</span>
+                        <span class="titulo">8</span>
+                        <span class="titulo">9</span>
+                        <span class="titulo">10</span>
+                    </div>
+                    
+                    <div class="kpi">
+                        <div class="desempenho1">
+                            <span class="titulo">RUIM</span>
+                        </div>
+                        <div class="desempenho2">
+                            <span class="titulo">MÉDIO</span>
+                        </div>
+                        <div class="desempenho3">
+                            <span class="titulo">BOM</span>
+                        </div>
+                    </div>
+                    <div class="pontuacao">
+                        <div id="pontos" class="titulo"></div>
+                        <div id="pontos2" class="titulo"></div>
+                    </div>
+
+                    <div>
+                        <canvas id="myChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
@@ -107,11 +152,15 @@
     var index = 0
     var contador = 0
     var respostas = []
+    var pontuacao = 0
+    var acertos = 0
+    var erros = 0
 
     function iniciar() {
         pergunta.innerHTML = `${index + 1}- ${vetorPerguntas[index]}`
         instrucoes.style.display = 'none';
         game.style.display = 'block';
+        resultado.style.display = 'none';
         box1.innerHTML = `Ayrton Senna`;
         box2.innerHTML = `Michael Schumacher`;
         box3.innerHTML = `Lewis Hamilton`;
@@ -214,12 +263,6 @@
             box3.innerHTML = `Alpine`;
             box4.innerHTML = `McLaren`;
         }
-        if (index == 10) {
-            box1.innerHTML = ``;
-            box2.innerHTML = ``;
-            box3.innerHTML = ``;
-            box4.innerHTML = ``;
-        }
     }
 
     function conferir() {
@@ -230,11 +273,14 @@
                 img.src = '../assets/img/Acerto.png';
                 view.style.display = 'none';
                 next.style.display = 'block';
+                fim.style.display = 'none';
+                fim.style.display = 'none';
                 feedback.innerHTML = `Parabéns, você acertou`;
                 respostas.push(1);
             } else {
                 view.style.display = 'none';
                 next.style.display = 'block';
+                fim.style.display = 'none';
                 img.src = '../assets/img/Erro.gif';
                 feedback.innerHTML = `Oops, não foi dessa vez`;
                 respostas.push(0);
@@ -248,11 +294,13 @@
                 img.src = '../assets/img/Acerto.png';
                 view.style.display = 'none';
                 next.style.display = 'block';
+                fim.style.display = 'none';
                 feedback.innerHTML = `Parabéns, você acertou`;
                 respostas.push(1);
             } else {
                 view.style.display = 'none';
                 next.style.display = 'block';
+                fim.style.display = 'none';
                 img.src = '../assets/img/Erro.gif';
                 feedback.innerHTML = `Oops, não foi dessa vez`;
                 respostas.push(0);
@@ -266,11 +314,13 @@
                 img.src = '../assets/img/Acerto.png';
                 view.style.display = 'none';
                 next.style.display = 'block';
+                fim.style.display = 'none';
                 feedback.innerHTML = `Parabéns, você acertou`;
                 respostas.push(1);
             } else {
                 view.style.display = 'none';
                 next.style.display = 'block';
+                fim.style.display = 'none';
                 img.src = '../assets/img/Erro.gif';
                 feedback.innerHTML = `Oops, não foi dessa vez`;
                 respostas.push(0);
@@ -284,11 +334,13 @@
                 img.src = '../assets/img/Acerto.png';
                 view.style.display = 'none';
                 next.style.display = 'block';
+                fim.style.display = 'none';
                 feedback.innerHTML = `Parabéns, você acertou`;
                 respostas.push(1);
             } else {
                 view.style.display = 'none';
                 next.style.display = 'block';
+                fim.style.display = 'none';
                 img.src = '../assets/img/Erro.gif';
                 feedback.innerHTML = `Oops, não foi dessa vez`;
                 respostas.push(0);
@@ -302,11 +354,13 @@
                 img.src = '../assets/img/Acerto.png';
                 view.style.display = 'none';
                 next.style.display = 'block';
+                fim.style.display = 'none';
                 feedback.innerHTML = `Parabéns, você acertou`;
                 respostas.push(1);
             } else {
                 view.style.display = 'none';
                 next.style.display = 'block';
+                fim.style.display = 'none';
                 img.src = '../assets/img/Erro.gif';
                 feedback.innerHTML = `Oops, não foi dessa vez`;
                 respostas.push(0);
@@ -320,11 +374,13 @@
                 img.src = '../assets/img/Acerto.png';
                 view.style.display = 'none';
                 next.style.display = 'block';
+                fim.style.display = 'none';
                 feedback.innerHTML = `Parabéns, você acertou`;
                 respostas.push(1);
             } else {
                 view.style.display = 'none';
                 next.style.display = 'block';
+                fim.style.display = 'none';
                 img.src = '../assets/img/Erro.gif';
                 feedback.innerHTML = `Oops, não foi dessa vez`;
                 respostas.push(0);
@@ -338,11 +394,13 @@
                 img.src = '../assets/img/Acerto.png';
                 view.style.display = 'none';
                 next.style.display = 'block';
+                fim.style.display = 'none';
                 feedback.innerHTML = `Parabéns, você acertou`;
                 respostas.push(1);
             } else {
                 view.style.display = 'none';
                 next.style.display = 'block';
+                fim.style.display = 'none';
                 img.src = '../assets/img/Erro.gif';
                 feedback.innerHTML = `Oops, não foi dessa vez`;
                 respostas.push(0);
@@ -356,11 +414,13 @@
                 img.src = '../assets/img/Acerto.png';
                 view.style.display = 'none';
                 next.style.display = 'block';
+                fim.style.display = 'none';
                 feedback.innerHTML = `Parabéns, você acertou`;
                 respostas.push(1);
             } else {
                 view.style.display = 'none';
                 next.style.display = 'block';
+                fim.style.display = 'none';
                 img.src = '../assets/img/Erro.gif';
                 feedback.innerHTML = `Oops, não foi dessa vez`;
                 respostas.push(0);
@@ -374,11 +434,13 @@
                 img.src = '../assets/img/Acerto.png';
                 view.style.display = 'none';
                 next.style.display = 'block';
+                fim.style.display = 'none';
                 feedback.innerHTML = `Parabéns, você acertou`;
                 respostas.push(1);
             } else {
                 view.style.display = 'none';
                 next.style.display = 'block';
+                fim.style.display = 'none';
                 img.src = '../assets/img/Erro.gif';
                 feedback.innerHTML = `Oops, não foi dessa vez`;
                 respostas.push(0);
@@ -391,18 +453,94 @@
             } else if (contador == 1) {
                 img.src = '../assets/img/Acerto.png';
                 view.style.display = 'none';
-                next.style.display = 'block';
+                next.style.display = 'none';
+                fim.style.display = 'block';
                 feedback.innerHTML = `Parabéns, você acertou`;
                 respostas.push(1);
+                
             } else {
                 view.style.display = 'none';
-                next.style.display = 'block';
+                next.style.display = 'none';
+                fim.style.display = 'block';
                 img.src = '../assets/img/Erro.gif';
                 feedback.innerHTML = `Oops, não foi dessa vez`;
                 respostas.push(0);
             }    
         }
+    }
 
+    function finalizar() {
+        index ++
+
+        if (index == 10) {
+            instrucoes.style.display = 'none';
+            game.style.display = 'none';
+            resultado.style.display = 'block';
+
+            for (var varrer = 0; varrer < respostas.length; varrer++) {
+                
+                pontuacao = pontuacao + respostas[varrer] 
+
+                if (respostas[varrer] == 1) {
+                    acertos ++
+                }
+                if (respostas[varrer] == 0) {
+                    erros ++
+                }
+                
+                if (pontuacao == 1) {
+                    pontos.innerHTML = `Você fez ${pontuacao} ponto`;
+                } else {
+                    pontos.innerHTML = `Você fez ${pontuacao} pontos`;
+                }
+            }
+            
+            if (pontuacao >= 0 && pontuacao <= 3) {
+                pontos2.innerHTML = `Seu desempenho foi ruim, precisa assistir mais Fórmula 1`;
+            }
+            if (pontuacao >= 4 && pontuacao <= 6) {
+                pontos2.innerHTML = `Seu desempenho foi médio, pode melhorar`;
+            }
+            if (pontuacao >= 7 && pontuacao <= 10) {
+                pontos2.innerHTML = `Seu desempenho foi bom, você é bom em Fórmula 1`;
+            }
+
+            const labels = [
+                'Acertos',
+                'Erros'
+            ];
+
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Desempenho',
+                    backgroundColor: ['#000000',
+                                      '#4F4F4F'],            
+                    data: [acertos, erros],
+                }]
+            };
+
+            const config = {
+                type: 'pie',
+                data: data,
+                options: {
+                    plugins: {
+                        legend: {
+                            display: true,
+                            labels: {
+                                color: '#FFFFFF'
+                            }
+                        }
+                    }
+                }
+            };
+
+            const myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+
+        }
     }
 
 </script>
