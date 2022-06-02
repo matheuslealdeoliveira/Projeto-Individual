@@ -56,20 +56,21 @@
                 </div>
                 <div class="respostas">
                     <div class="boxes">
-                        <div id="box1" onclick="erro1()">Ayrton Senna</div>
-                        <div id="box2" onclick="erro2()">Michael Schumacher</div>
+                        <div id="box1" onclick="cond1()"></div>
+                        <div id="box2" onclick="cond2()"></div>
                     </div>
                     <div class="boxes">
-                        <div id="box3" onclick="acerto()">Lewis Hamilton</div>
-                        <div id="box4" onclick="erro3()">Felipe Massa</div>
+                        <div id="box3" onclick="cond3()"></div>
+                        <div id="box4" onclick="cond4()"></div>
                     </div>
                 </div>
                 <div class="respostas">
-                    <button class="botao" id="view" style="display: block;" onclick="ver()">Ver Resposta</button>
+                    <button class="botao" id="view" style="display: block;" onclick="conferir()">Ver Resposta</button>
                     <button class="botao" id="next" style="display: none;" onclick="proxima()">Próxima Pergunta</button>
                 </div>
                 <div class="respostas">
-                    <img id="img" src="">
+                    <span id="feedback" class="titulo"></span>
+                    <img id="img" class="img" src="">
                 </div>
             </div>
         </div>
@@ -99,75 +100,309 @@
     // Alfa Romeo
     'Quantas vitórias Lewis Hamilton tem na Fórmula 1?',
     // 103
-    'A equipe McLaren venceu o último campeonato de construtores.',
-    // Falso
+    'Qual equipe venceu o último campeonato de construtores?',
+    // Mercedes
     ];
 
     var index = 0
-    var validacao = 0
-    var numero = 0
+    var contador = 0
+    var respostas = []
 
     function iniciar() {
+        pergunta.innerHTML = `${index + 1}- ${vetorPerguntas[index]}`
         instrucoes.style.display = 'none';
         game.style.display = 'block';
-        pergunta.innerHTML = `${index + 1}- ${vetorPerguntas[index]}`;
+        box1.innerHTML = `Ayrton Senna`;
+        box2.innerHTML = `Michael Schumacher`;
+        box3.innerHTML = `Lewis Hamilton`;
+        box4.innerHTML = `Felipe Massa`;
     }
-    
-    function erro1() {
-        validacao = 1
+
+    function cond1() {
         box1.style.backgroundColor = '#363636';
         box2.style.backgroundColor = '#000000';
         box3.style.backgroundColor = '#000000';
         box4.style.backgroundColor = '#000000';
+        contador = 1
     }
-    
-    function erro2() {
-        validacao = 1
+    function cond2() {
         box1.style.backgroundColor = '#000000';
         box2.style.backgroundColor = '#363636';
         box3.style.backgroundColor = '#000000';
         box4.style.backgroundColor = '#000000';
+        contador = 2
     }
-    
-    function erro3() {
-        validacao = 1
-        box1.style.backgroundColor = '#000000';
-        box2.style.backgroundColor = '#000000';
-        box3.style.backgroundColor = '#000000';
-        box4.style.backgroundColor = '#363636';
-    }
-    
-    function acerto() {
-        validacao = 2
+    function cond3() {
         box1.style.backgroundColor = '#000000';
         box2.style.backgroundColor = '#000000';
         box3.style.backgroundColor = '#363636';
         box4.style.backgroundColor = '#000000';
+        contador = 3
     }
-
-    function ver() {
-        if (validacao == 0) {
-            alert('Responda a questão antes de conferir');
-        }
-        if (validacao == 1) {
-            view.style.display = 'none';
-            next.style.display = 'block';
-            img.src = '../assets/img/Erro.gif';
-        }
-        if (validacao == 2) {
-            view.style.display = 'none';
-            next.style.display = 'block';
-            img.src = '../assets/img/Acerto.png';
-            numero ++
-        }
+    function cond4() {
+        box1.style.backgroundColor = '#000000';
+        box2.style.backgroundColor = '#000000';
+        box3.style.backgroundColor = '#000000';
+        box4.style.backgroundColor = '#363636';
+        contador = 4
     }
 
     function proxima() {
         index ++
+        pergunta.innerHTML = `${index + 1}- ${vetorPerguntas[index]}`;
         view.style.display = 'block';
         next.style.display = 'none';
         img.src = '';
-        pergunta.innerHTML = `${index + 1}- ${vetorPerguntas[index]}`;
+        feedback.innerHTML = ``;
+        box1.style.backgroundColor = '#000000';
+        box2.style.backgroundColor = '#000000';
+        box3.style.backgroundColor = '#000000';
+        box4.style.backgroundColor = '#000000';
+        contador = 0
+
+        if (index == 1) {
+            box1.innerHTML = `Lewis Hamilton e Ayrton Senna`;
+            box2.innerHTML = `Michael Schumacher e Lewis Hamilton`;
+            box3.innerHTML = `Michael Schumacher e Ayrton Senna`;
+            box4.innerHTML = `Michael Schumacher e Fernando Alonso`;
+        }
+        if (index == 2) {
+            box1.innerHTML = `1`;
+            box2.innerHTML = `2`;
+            box3.innerHTML = `3`;
+            box4.innerHTML = `4`;
+        }
+        if (index == 3) {
+            box1.innerHTML = `1`;
+            box2.innerHTML = `2`;
+            box3.innerHTML = `3`;
+            box4.innerHTML = `4`;
+        }
+        if (index == 4) {
+            box1.innerHTML = `Charles Leclerc e Carlos Sainz`;
+            box2.innerHTML = `Charles Leclerc e Sebastian Vettel`;
+            box3.innerHTML = `Carlos Sainz e Fernando Alonso`;
+            box4.innerHTML = `Mick Schumacher e Fernando Alonso`;
+        }
+        if (index == 5) {
+            box1.innerHTML = `Mick Schumacher e Fernando Alonso`;
+            box2.innerHTML = `Esteban Ocon e Kimi Raikkonen`;
+            box3.innerHTML = `Kimi Raikkonen e Felipe Massa`;
+            box4.innerHTML = `Max Verstappen e Nico Rosberg`;
+        }
+        if (index == 6) {
+            box1.innerHTML = `Juan Manuel Fangio`;
+            box2.innerHTML = `Alan Prost`;
+            box3.innerHTML = `Damon Hill`;
+            box4.innerHTML = `Andrea de Cesaris`;
+        }
+        if (index == 7) {
+            box1.innerHTML = `Aston Martin`;
+            box2.innerHTML = `Williams`;
+            box3.innerHTML = `RedBull`;
+            box4.innerHTML = `Alfa Romeo`;
+        }
+        if (index == 8) {
+            box1.innerHTML = `111`;
+            box2.innerHTML = `104`;
+            box3.innerHTML = `103`;
+            box4.innerHTML = `101`;
+        }
+        if (index == 9) {
+            box1.innerHTML = `Mercedes`;
+            box2.innerHTML = `Ferrari`;
+            box3.innerHTML = `Alpine`;
+            box4.innerHTML = `McLaren`;
+        }
+        if (index == 10) {
+            box1.innerHTML = ``;
+            box2.innerHTML = ``;
+            box3.innerHTML = ``;
+            box4.innerHTML = ``;
+        }
+    }
+
+    function conferir() {
+        if (index == 0) {
+            if (contador == 0) {
+                alert(`Escolha alguma alternativa`);
+            } else if (contador == 3) {
+                img.src = '../assets/img/Acerto.png';
+                view.style.display = 'none';
+                next.style.display = 'block';
+                feedback.innerHTML = `Parabéns, você acertou`;
+                respostas.push(1);
+            } else {
+                view.style.display = 'none';
+                next.style.display = 'block';
+                img.src = '../assets/img/Erro.gif';
+                feedback.innerHTML = `Oops, não foi dessa vez`;
+                respostas.push(0);
+            }    
+        }
+
+        if (index == 1) {
+            if (contador == 0) {
+                alert(`Escolha alguma alternativa`);
+            } else if (contador == 2) {
+                img.src = '../assets/img/Acerto.png';
+                view.style.display = 'none';
+                next.style.display = 'block';
+                feedback.innerHTML = `Parabéns, você acertou`;
+                respostas.push(1);
+            } else {
+                view.style.display = 'none';
+                next.style.display = 'block';
+                img.src = '../assets/img/Erro.gif';
+                feedback.innerHTML = `Oops, não foi dessa vez`;
+                respostas.push(0);
+            }    
+        }
+
+        if (index == 2) {
+            if (contador == 0) {
+                alert(`Escolha alguma alternativa`);
+            } else if (contador == 3) {
+                img.src = '../assets/img/Acerto.png';
+                view.style.display = 'none';
+                next.style.display = 'block';
+                feedback.innerHTML = `Parabéns, você acertou`;
+                respostas.push(1);
+            } else {
+                view.style.display = 'none';
+                next.style.display = 'block';
+                img.src = '../assets/img/Erro.gif';
+                feedback.innerHTML = `Oops, não foi dessa vez`;
+                respostas.push(0);
+            }    
+        }
+
+        if (index == 3) {
+            if (contador == 0) {
+                alert(`Escolha alguma alternativa`);
+            } else if (contador == 4) {
+                img.src = '../assets/img/Acerto.png';
+                view.style.display = 'none';
+                next.style.display = 'block';
+                feedback.innerHTML = `Parabéns, você acertou`;
+                respostas.push(1);
+            } else {
+                view.style.display = 'none';
+                next.style.display = 'block';
+                img.src = '../assets/img/Erro.gif';
+                feedback.innerHTML = `Oops, não foi dessa vez`;
+                respostas.push(0);
+            }    
+        }
+    
+        if (index == 4) {
+            if (contador == 0) {
+                alert(`Escolha alguma alternativa`);
+            } else if (contador == 1) {
+                img.src = '../assets/img/Acerto.png';
+                view.style.display = 'none';
+                next.style.display = 'block';
+                feedback.innerHTML = `Parabéns, você acertou`;
+                respostas.push(1);
+            } else {
+                view.style.display = 'none';
+                next.style.display = 'block';
+                img.src = '../assets/img/Erro.gif';
+                feedback.innerHTML = `Oops, não foi dessa vez`;
+                respostas.push(0);
+            }    
+        }
+
+        if (index == 5) {
+            if (contador == 0) {
+                alert(`Escolha alguma alternativa`);
+            } else if (contador == 1) {
+                img.src = '../assets/img/Acerto.png';
+                view.style.display = 'none';
+                next.style.display = 'block';
+                feedback.innerHTML = `Parabéns, você acertou`;
+                respostas.push(1);
+            } else {
+                view.style.display = 'none';
+                next.style.display = 'block';
+                img.src = '../assets/img/Erro.gif';
+                feedback.innerHTML = `Oops, não foi dessa vez`;
+                respostas.push(0);
+            }    
+        }
+
+        if (index == 6) {
+            if (contador == 0) {
+                alert(`Escolha alguma alternativa`);
+            } else if (contador == 2) {
+                img.src = '../assets/img/Acerto.png';
+                view.style.display = 'none';
+                next.style.display = 'block';
+                feedback.innerHTML = `Parabéns, você acertou`;
+                respostas.push(1);
+            } else {
+                view.style.display = 'none';
+                next.style.display = 'block';
+                img.src = '../assets/img/Erro.gif';
+                feedback.innerHTML = `Oops, não foi dessa vez`;
+                respostas.push(0);
+            }    
+        }
+
+        if (index == 7) {
+            if (contador == 0) {
+                alert(`Escolha alguma alternativa`);
+            } else if (contador == 4) {
+                img.src = '../assets/img/Acerto.png';
+                view.style.display = 'none';
+                next.style.display = 'block';
+                feedback.innerHTML = `Parabéns, você acertou`;
+                respostas.push(1);
+            } else {
+                view.style.display = 'none';
+                next.style.display = 'block';
+                img.src = '../assets/img/Erro.gif';
+                feedback.innerHTML = `Oops, não foi dessa vez`;
+                respostas.push(0);
+            }    
+        }
+
+        if (index == 8) {
+            if (contador == 0) {
+                alert(`Escolha alguma alternativa`);
+            } else if (contador == 3) {
+                img.src = '../assets/img/Acerto.png';
+                view.style.display = 'none';
+                next.style.display = 'block';
+                feedback.innerHTML = `Parabéns, você acertou`;
+                respostas.push(1);
+            } else {
+                view.style.display = 'none';
+                next.style.display = 'block';
+                img.src = '../assets/img/Erro.gif';
+                feedback.innerHTML = `Oops, não foi dessa vez`;
+                respostas.push(0);
+            }    
+        }
+        
+        if (index == 9) {
+            if (contador == 0) {
+                alert(`Escolha alguma alternativa`);
+            } else if (contador == 1) {
+                img.src = '../assets/img/Acerto.png';
+                view.style.display = 'none';
+                next.style.display = 'block';
+                feedback.innerHTML = `Parabéns, você acertou`;
+                respostas.push(1);
+            } else {
+                view.style.display = 'none';
+                next.style.display = 'block';
+                img.src = '../assets/img/Erro.gif';
+                feedback.innerHTML = `Oops, não foi dessa vez`;
+                respostas.push(0);
+            }    
+        }
+
     }
 
 </script>
