@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/style/stylecontent.css">
-    <script src="./assets/js/funcoes.js"></script>
+    <script src="../assets/js/funcoes.js"></script>
     <title>Quiz</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -15,7 +15,8 @@
         
         <div class="perfil">
                 <img class="icon" src="../assets/img/User.png">
-                <span class="titulo">Bem-vindo de volta!</span>
+                <span class="titulo">Bem-vindo de volta</span>
+                <span id="nomeusuario"></span>
         </div>
 
         <div class="links">
@@ -34,7 +35,7 @@
         </div>
 
         <div class="exit">
-            <button class="botao">SAIR</button>
+            <button class="botao" onclick="limparSessao()">SAIR</button>
         </div>
 
     </div>
@@ -125,6 +126,8 @@
 </html>
 
 <script>
+
+    nomeusuario.innerHTML = sessionStorage.NOME_USUARIO;    
 
     var vetorPerguntas = [
     'Qual o piloto com mais vitórias na Fórmula 1?', 
