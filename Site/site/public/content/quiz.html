@@ -69,7 +69,7 @@
                 <div class="respostas">
                     <button class="botao" id="view" style="display: block;" onclick="conferir()">Ver Resposta</button>
                     <button class="botao" id="next" style="display: none;" onclick="proxima()">Próxima Pergunta</button>
-                    <button class="botao" id="fim" style="display: none;" onclick="finalizar()">Ver Desempenho</button>
+                    <button class="botao" id="fim" style="display: none;" onclick="finalizar(), salvar(pontos)">Ver Desempenho</button>
                 </div>
                 <div class="respostas">
                     <span id="feedback" class="titulo"></span>
@@ -544,6 +544,20 @@
             );
 
         }
+    }
+
+    function salvar() {
+        var pontosVar = pontuacao
+
+        fetch("/quiz/salvar/", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+              pontosServer: pontosVar
+          })
+      })
     }
 
 </script>
