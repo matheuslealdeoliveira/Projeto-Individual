@@ -10,11 +10,11 @@ CREATE TABLE usuario (
 );
 
 CREATE TABLE notas (
-	fkUsuario INT,
-    FOREIGN KEY (fkUsuario) REFERENCES usuario(id),
-	idTentativa INT AUTO_INCREMENT PRIMARY KEY,
-	desempenho INT
-);
+  idQuiz INT PRIMARY KEY AUTO_INCREMENT,
+  fkUsuario INT,
+  FOREIGN KEY (fkUsuario) REFERENCES usuario(id),
+  desempenho INT
+) AUTO_INCREMENT = 1000;
 
 SELECT * FROM usuario;
 SELECT * FROM notas;

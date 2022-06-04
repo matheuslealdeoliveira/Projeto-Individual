@@ -69,7 +69,7 @@
                 <div class="respostas">
                     <button class="botao" id="view" style="display: block;" onclick="conferir()">Ver Resposta</button>
                     <button class="botao" id="next" style="display: none;" onclick="proxima()">Próxima Pergunta</button>
-                    <button class="botao" id="fim" style="display: none;" onclick="finalizar(), salvar(pontos)">Ver Desempenho</button>
+                    <button class="botao" id="fim" style="display: none;" onclick="finalizar()">Ver Desempenho</button>
                 </div>
                 <div class="respostas">
                     <span id="feedback" class="titulo"></span>
@@ -492,9 +492,9 @@
                 }
                 
                 if (pontuacao == 1) {
-                    pontos.innerHTML = `Você fez ${pontuacao} ponto`;
+                    pontos.innerHTML = `Você acertou ${pontuacao * 10}% e fez ${pontuacao} ponto`;
                 } else {
-                    pontos.innerHTML = `Você fez ${pontuacao} pontos`;
+                    pontos.innerHTML = `Você acertou ${pontuacao * 10}% e fez ${pontuacao} pontos`;
                 }
             }
             
@@ -544,21 +544,29 @@
             );
 
         }
+
+        salvar();
+
     }
 
     function salvar() {
-        var pontosVar = pontuacao
+            var pontosVar = pontuacao;
 
-        fetch("/quiz/salvar/", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-              pontosServer: pontosVar
-          })
-      })
-    }
+            fetch("/quiz/salvar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    pontosServer: pontosVar,
+                    idServer: sessionStorage.ID_USUARIO
+                })
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+            return false;   
+        }
 
 </script>
 
