@@ -21,6 +21,27 @@ function salvar(req, res) {
             );
 }
 
+function carregar(req, res) {
+    var id = req.body.idServer;
+
+        quizModel.carregar(id)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao mostrar o resultado do quiz! ERRO: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+}
+
 module.exports = {
-    salvar
+    salvar,
+    carregar
 }

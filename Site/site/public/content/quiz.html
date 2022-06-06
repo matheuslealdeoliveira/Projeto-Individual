@@ -21,6 +21,9 @@
 
         <div class="links">
             <div class="topics">
+                <span class="titulo"><a href="perfil.html">Perfil</a></span>
+            </div>
+            <div class="topics">
                 <span class="titulo"><a href="info.html">Informações </a></span>
             </div>
             <div class="topics">
@@ -550,23 +553,34 @@
     }
 
     function salvar() {
-            var pontosVar = pontuacao;
+        var pontosVar = pontuacao;
 
-            fetch("/quiz/salvar", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    pontosServer: pontosVar,
-                    idServer: sessionStorage.ID_USUARIO
-                })
-            }).catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
+        fetch("/quiz/salvar", {
+            method: "POST",                
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                pontosServer: pontosVar,
+                idServer: sessionStorage.ID_USUARIO
+            })
+            
+        }).then(function (resposta) {
 
-            return false;   
-        }
+            if (resposta.ok) {
+                
+            } else {
+            
+                throw ("Houve um erro ao salvar o desempenho");
+            
+            }
+
+        }).catch(function (resposta) {
+            console.log(`${resposta}`);
+        });
+
+        return false;   
+    }
 
 </script>
 

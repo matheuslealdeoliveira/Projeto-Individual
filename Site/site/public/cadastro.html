@@ -91,6 +91,7 @@
               emailServer: emailVar,
               senhaServer: senhaVar
           })
+
       }).then(function (resposta) {
 
           console.log("resposta: ", resposta);
@@ -99,17 +100,22 @@
 
               subtitulo.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login";
 
+              console.log("Sucesso ao realizar o cadastro");
+
               setTimeout(() => {
                   window.location = "login.html";
               }, "2000")
               
           } else {
+
             subtitulo.innerHTML = "Email já cadastrado";
 
-              throw ("Houve um erro ao tentar realizar o cadastro!");
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+          
           }
+
       }).catch(function (resposta) {
-          console.log(`#ERRO: ${resposta}`);
+          console.log(`${resposta}`);
       });
 
       return false;

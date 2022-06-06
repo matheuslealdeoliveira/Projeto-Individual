@@ -83,14 +83,16 @@
               emailServer: emailVar,
               senhaServer: senhaVar
           })
+
       }).then(function (resposta) {
-          console.log("ESTOU NO THEN DO entrar()!")
+
+          console.log("resposta: ", resposta)
 
           if (resposta.ok) {
 
             subtitulo.innerHTML = "Login realizado com sucesso";
 
-              console.log(resposta);
+              console.log("Sucesso ao realizar login");
 
               resposta.json().then(json => {
                   console.log(json);
@@ -101,7 +103,7 @@
                   sessionStorage.ID_USUARIO = json.id;
 
                   setTimeout(function () {
-                      window.location = "./content/info.html";
+                      window.location = "./content/perfil.html";
                   }, 1000); 
 
               });
@@ -110,11 +112,8 @@
 
             subtitulo.innerHTML = "Credenciais incorretas";
 
-              console.log("Houve um erro ao tentar realizar o login!");
+            throw("Houve um erro ao tentar realizar o login!");
 
-              resposta.text().then(texto => {
-                  console.error(texto);
-              });
           }
 
       }).catch(function (erro) {

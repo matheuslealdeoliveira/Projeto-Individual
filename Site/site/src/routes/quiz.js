@@ -7,4 +7,8 @@ router.post("/salvar", function (req, res) {
     quizController.salvar(req, res);
 })
 
+router.post("/carregar", function (req, res) {
+    quizController.carregar(req, res);
+})
+
 module.exports = router;

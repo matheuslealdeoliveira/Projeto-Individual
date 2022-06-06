@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/style/stylecontent.css">
+    <script src="../assets/js/funcoes.js"></script>
+    <title>Perfil</title>
+</head>
+<body onload="validarSessao(), carregar()">
+    
+    <div class="info">
+
+        <div class="navbar">
+            <div class="perfil">
+                <img class="icon" src="../assets/img/User.png">
+                <span class="titulo">Bem-vindo de volta</span>
+                <span id="nomeusuario"></span>
+            </div>
+
+            <div class="links">
+                <div class="atual">
+                    <span class="titulo"><a href="perfil.html">Perfil</a></span>
+                </div>
+                <div class="topics">
+                    <span class="titulo"><a href="info.html">Informações </a></span>
+                </div>
+                <div class="topics">
+                    <span class="titulo"><a href="piloto.html">Pilotos</a></span>
+                </div>
+                <div class="topics">
+                    <span class="titulo"><a href="equipe.html">Equipes</a></span>
+                </div>
+                <div class="topics">
+                    <span class="titulo"><a href="quiz.html">Quiz</a></span>
+                </div>
+            </div>
+
+            <div class="exit">
+                <button class="botao" onclick="limparSessao()">SAIR</button>
+            </div>
+        </div>
+
+
+        <div class="page">
+            <div id="mostrar">
+                
+            </div> 
+        </div>
+
+    </div>
+</body>
+</html>
+
+<script>
+
+    nomeusuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    var media = '';
+    var tentativas = 0;
+
+    function carregar(id) {
+
+        fetch("/quiz/carregar", {
+            method: "POST",                
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({  
+                idServer: sessionStorage.ID_USUARIO
+            })
+            
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+                    
+                    media = json[0].media;
+                    tentativas = json[0].tentativas;
+
+                    if (media == null) {
+                        mostrar.innerHTML += `--Média--`;
+                    }
+                    if (tentativas == 0) {
+                        mostrar.innerHTML += `<br> Você ainda não respondeu nosso quiz`;
+                    }
+                    if (media != null && tentativas > 0) {
+                        mostrar.innerHTML = `Média de Pontos:${media} <br>
+                                        Número de Tentativas: ${tentativas}`;                        
+                    }
+                })
+
+            } else {
+
+                throw("Houve um erro ao exibir média e número de tentativas");
+
+            }
+        
+        }).catch(function (resposta) {
+            console.log(`${resposta}`);
+        });
+
+        return false;   
+
+    }
+
+    
+
+</script>
