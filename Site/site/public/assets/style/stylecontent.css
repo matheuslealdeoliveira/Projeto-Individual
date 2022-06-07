@@ -726,8 +726,39 @@ a {
     height: 280px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: #000000;
     box-shadow: 5px 5px 5px #FFFFFF;
     border-radius: 20px;
+}
+
+.fav .select {
+    margin-top: 90px;
+    width: 60%;
+    height: 30px;
+    border:#00FF00 solid 3px;
+    border-radius: 20px;
+    background-color: #000000;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+}
+
+#escolherPiloto, #escolherEquipe {
+    margin-left: 190px;
+    width: 100%;
+}
+
+.meuperfil .botao {
+    width: 200px;
+    height: 40px;
+    border: #FFFFFF solid 3px;
+    border-radius: 20px;
+    background-color: #00FF00;
+    color: #000000;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
 }
 /* FIM PERFIL */

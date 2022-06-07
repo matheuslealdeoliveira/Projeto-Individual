@@ -53,7 +53,6 @@
                 <div class="box">
                     <div class="titulo">TENTATIVAS QUIZ</div>
                     <div id="div_tentativa" class="texto"></div>
-                    <canvas id="myChart" style="height: 200px;"></canvas>
                 </div>
 
             </div> 
@@ -61,11 +60,54 @@
             <div class="fav">
                 <div class="box">
                     <div class="titulo">PILOTO FAVORITO</div>
+                    <div id="escolherPiloto" style="display: block;">
+                        <select id="sel_pilotos" class="select">
+                            <option value="0">--escolha seu piloto favorito--</option>
+                            <option value="Alexander Albon">Alexander Albon</option>
+                            <option value="Carlos Sainz">Carlos Sainz</option>
+                            <option value="Charles Leclerc">Charles Leclerc</option>
+                            <option value="Daniel Ricciardo">Daniel Ricciardo</option>
+                            <option value="Esteban Ocon">Esteban Ocon</option>
+                            <option value="Fernando Alonso">Fernando Alonso</option>
+                            <option value="George Russell">George Russell</option>
+                            <option value="Kevin Magnussen">Kevin Magnussen</option>
+                            <option value="Lance Stroll">Lance Stroll</option>
+                            <option value="Lando Norris">Lando Norris</option>
+                            <option value="Lewis Hamilton">Lewis Hamilton</option>
+                            <option value="Max Verstappen">Max Verstappen</option>
+                            <option value="Mick Schumacher">Mick Schumacher</option>
+                            <option value="Nicholas Latifi">Nicholas Latifi</option>
+                            <option value="Pierre Gasly">Pierre Gasly</option>
+                            <option value="Sebastian Vettel">Sebastian Vettel</option>
+                            <option value="Sergio Perez">Sergio Perez</option>
+                            <option value="Valtteri Bottas">Valtteri Bottas</option>
+                            <option value="Yuki Tsunoda">Yuki Tsunoda</option>
+                            <option value="Zhou Guanyu">Zhou Guanyu</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="box">
                     <div class="titulo">EQUIPE FAVORITO</div>
+                    <div id="escolherEquipe" style="display: block;">
+                        <select id="sel_equipes" class="select">
+                            <option value="0">--escolha sua equipe favorita--</option>
+                            <option value="AlfaRomeo">Alfa Romeo</option>
+                            <option value="AlphaTauri">Alpha Tauri</option>
+                            <option value="Alpine">Alpine</option>
+                            <option value="AstonMartin">Aston Martin</option>
+                            <option value="Ferrari">Ferrari</option>
+                            <option value="Haas">Haas</option>
+                            <option value="McLaren">McLaren</option>
+                            <option value="Mercedes">Mercedes</option>
+                            <option value="RedBull">RedBull</option>
+                            <option value="Williams">Williams</option>
+                        </select>
+                    </div>
                 </div>
             </div>
+
+            <button class="botao" onclick="escolher()">Escolher</button>
+
         </div>
 
     </div>
@@ -78,10 +120,13 @@
 
     var media = '';
     var tentativas = 0;
+    var validacao = 0;
+    var pilotos = 0;
+    var equipes = 0;
 
     function carregar(id) {
 
-        fetch("/quiz/carregar", {
+        fetch("/perfil/carregarNotas", {
             method: "POST",                
             headers: {
                 "Content-Type": "application/json"
@@ -103,7 +148,7 @@
                         div_media.innerHTML += `Responda o quiz e veja sua média de acertos`;
                     }
                     if (tentativas == 0) {
-                        div_tentativa.innerHTML += `<br> Você ainda não respondeu nosso quiz`;
+                        div_tentativa.innerHTML += `Você ainda não respondeu nosso quiz`;
                     }
                     if (media != null && tentativas > 0) {
                         div_media.innerHTML = `Média de Pontos: ${media}` 
@@ -122,6 +167,57 @@
         });
 
         return false;   
+
+    }
+
+    function escolher() {
+        pilotos = sel_pilotos.value
+        equipes = sel_equipes.value
+
+        var pilotoVar = pilotos
+        var equipeVar = equipes
+        
+        if (pilotoVar == 0 || equipeVar == 0) {
+            alert(`Escolha o piloto e equipe favorita`);
+            validacao = false
+        } if (pilotoVar != 0 && equipeVar != 0) {
+            validacao = true
+            alert(`YES`);
+        }       
+
+        if (validacao == true) {
+                
+            fetch("/perfil/salvarFav", {
+                method: "POST",                
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    pilotoServer: pilotoVar,
+                    equipeServer: equipeVar,
+                    idServer: sessionStorage.ID_USUARIO
+                })
+                
+            }).then(function (resposta) {
+
+                if (resposta.ok) {
+
+                    escolherPiloto.style.display = 'none';
+                    escolherEquipe.style.display = 'none';
+                
+                } else {
+                
+                    throw ("Houve um erro ao escolher favoritos");
+                
+                }
+
+            }).catch(function (resposta) {
+                console.log(`${resposta}`);
+            });
+
+            return false;  
+            
+        }
 
     }
 

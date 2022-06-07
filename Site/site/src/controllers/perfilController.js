@@ -1,10 +1,10 @@
-var quizModel = require("../models/quizModel");
+var perfilModel = require("../models/perfilModel");
 
-function salvar(req, res) {
+function salvarNotas(req, res) {
     var id = req.body.idServer;
     var pontos = req.body.pontosServer;
 
-        quizModel.salvar(id, pontos)
+        perfilModel.salvarNotas(id, pontos)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -21,10 +21,10 @@ function salvar(req, res) {
             );
 }
 
-function carregar(req, res) {
+function carregarNotas(req, res) {
     var id = req.body.idServer;
 
-        quizModel.carregar(id)
+        perfilModel.carregarNotas(id)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -41,7 +41,30 @@ function carregar(req, res) {
             );
 }
 
+function salvarFav(req, res) {
+    var piloto = req.body.pilotoServer;
+    var equipe = req.body.equipeServer;
+    var id = req.body.idServer;
+
+        perfilModel.salvarFav(id, piloto, equipe)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao salvar o piloto e equipe favorito! ERRO: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+}
+
 module.exports = {
-    salvar,
-    carregar
+    salvarNotas,
+    carregarNotas,
+    salvarFav
 }
