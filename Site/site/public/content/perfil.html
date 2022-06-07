@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../assets/style/stylecontent.css">
     <script src="../assets/js/funcoes.js"></script>
     <title>Perfil</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body onload="validarSessao(), carregar()">
     
@@ -43,10 +44,28 @@
         </div>
 
 
-        <div class="page">
-            <div id="mostrar">
-                
+        <div class="meuperfil">
+            <div class="medias">
+                <div class="box">
+                    <div class="titulo">MÉDIA DE PONTOS QUIZ</div>
+                    <div id="div_media" class="texto"></div>
+                </div>
+                <div class="box">
+                    <div class="titulo">TENTATIVAS QUIZ</div>
+                    <div id="div_tentativa" class="texto"></div>
+                    <canvas id="myChart" style="height: 200px;"></canvas>
+                </div>
+
             </div> 
+
+            <div class="fav">
+                <div class="box">
+                    <div class="titulo">PILOTO FAVORITO</div>
+                </div>
+                <div class="box">
+                    <div class="titulo">EQUIPE FAVORITO</div>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -81,14 +100,14 @@
                     tentativas = json[0].tentativas;
 
                     if (media == null) {
-                        mostrar.innerHTML += `--Média--`;
+                        div_media.innerHTML += `Responda o quiz e veja sua média de acertos`;
                     }
                     if (tentativas == 0) {
-                        mostrar.innerHTML += `<br> Você ainda não respondeu nosso quiz`;
+                        div_tentativa.innerHTML += `<br> Você ainda não respondeu nosso quiz`;
                     }
                     if (media != null && tentativas > 0) {
-                        mostrar.innerHTML = `Média de Pontos:${media} <br>
-                                        Número de Tentativas: ${tentativas}`;                        
+                        div_media.innerHTML = `Média de Pontos: ${media}` 
+                        div_tentativa.innerHTML = `Número de Tentativas: ${tentativas}`;   
                     }
                 })
 
@@ -105,7 +124,5 @@
         return false;   
 
     }
-
-    
 
 </script>

@@ -668,3 +668,66 @@ a {
     font-size: 22px;
 }
 /* FIM QUIZ */
+
+/* INICIO PERFIL */
+.meuperfil {
+    width: 100%;
+    background-color: #363636;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20%;
+}
+
+.medias {
+    margin-top: 50px;
+    width: 90%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.medias .box {
+    width: 45%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    background-color: #000000;
+    box-shadow: 5px 5px 5px #FFFFFF;
+    border-radius: 20px;
+}
+
+.meuperfil .titulo {
+    margin-top: 20px;
+    color: #FFFFFF;
+    font-size: 20px;
+    text-align: center;
+}
+
+.meuperfil .texto {
+    margin-top: 10px;
+    color: #FFFFFF;
+    font-size: 18px;
+    text-align: center;
+}
+
+.fav {
+    margin-top: 50px;
+    width: 90%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.fav .box {
+    width: 45%;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    background-color: #000000;
+    box-shadow: 5px 5px 5px #FFFFFF;
+    border-radius: 20px;
+}
+/* FIM PERFIL */
