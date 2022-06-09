@@ -27,8 +27,18 @@ function salvarFav(id, piloto, equipe) {
     return database.executar(instrucao);
 }
 
+function carregarFav(id) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function carregarFav():", id)
+    var instrucao = `
+        SELECT piloto AS 'pilotos', equipe AS 'equipes' FROM favorito WHERE idUsuario = ${id}; 
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     salvarNotas,
     carregarNotas,
-    salvarFav
+    salvarFav,
+    carregarFav
 };

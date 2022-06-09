@@ -9,7 +9,7 @@
     <title>Perfil</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body onload="validarSessao(), carregar()">
+<body onload="validarSessao(), carregar(), carregarFav()">
     
     <div class="info">
 
@@ -85,9 +85,11 @@
                             <option value="Zhou Guanyu">Zhou Guanyu</option>
                         </select>
                     </div>
+                    <div id="div_piloto" class="texto"></div>
+                    <img id="img_piloto" src="">
                 </div>
                 <div class="box">
-                    <div class="titulo">EQUIPE FAVORITO</div>
+                    <div class="titulo">EQUIPE FAVORITA</div>
                     <div id="escolherEquipe" style="display: block;">
                         <select id="sel_equipes" class="select">
                             <option value="0">--escolha sua equipe favorita--</option>
@@ -103,10 +105,12 @@
                             <option value="Williams">Williams</option>
                         </select>
                     </div>
+                    <div id="div_equipe" class="texto"></div>
+                    <img id="img_equipe" src="">
                 </div>
             </div>
 
-            <button class="botao" onclick="escolher()">Escolher</button>
+            <button id="btescolher" class="botao" onclick="escolher()" style="display: block;">Escolher</button>
 
         </div>
 
@@ -182,7 +186,6 @@
             validacao = false
         } if (pilotoVar != 0 && equipeVar != 0) {
             validacao = true
-            alert(`YES`);
         }       
 
         if (validacao == true) {
@@ -204,6 +207,12 @@
 
                     escolherPiloto.style.display = 'none';
                     escolherEquipe.style.display = 'none';
+                    alert(`Cadastrado com sucesso`);
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, "2000")
+            
+
                 
                 } else {
                 
@@ -216,8 +225,177 @@
             });
 
             return false;  
-            
+
         }
+
+    }
+
+    function carregarFav(id) {
+
+        fetch("/perfil/carregarFav", {
+            method: "POST",                
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({  
+                idServer: sessionStorage.ID_USUARIO
+            })
+            
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+                    
+                    pilotos = json[0].pilotos;
+                    equipes = json[0].equipes;
+
+                    if (pilotos != null && equipes != null) {
+                        
+                        escolherPiloto.style.display = 'none';
+                        escolherEquipe.style.display = 'none';
+                    
+                        if (pilotos == 'Alexander Albon') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/Albon.png';
+                        }
+                        if (pilotos == 'Carlos Sainz') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/Sainz.png';
+                        }
+                        if (pilotos == 'Charles Leclerc') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/Leclerc.png';
+                        }
+                        if (pilotos == 'Daniel Ricciardo') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/Ricciardo.png';
+                        }
+                        if (pilotos == 'Esteban Ocon') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/Ocon.png';
+                        }
+                        if (pilotos == 'Fernando Alonso') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/Alonso.png';
+                        }
+                        if (pilotos == 'George Russell') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/Russell.png';
+                        }
+                        if (pilotos == 'Kevin Magnussen') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/Magnussen.png';
+                        }
+                        if (pilotos == 'Lance Stroll') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/Stroll.png';
+                        }
+                        if (pilotos == 'Lando Norris') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/Norris.png';
+                        }
+                        if (pilotos == 'Lewis Hamilton') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/Hamilton.png';
+                        }
+                        if (pilotos == 'Max Verstappen') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/Verstappen.png';
+                        }
+                        if (pilotos == 'Mick Schumacher') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/MSchumacher.png';
+                        }
+                        if (pilotos == 'Nicholas Latifi') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/Latifi.png';
+                        }
+                        if (pilotos == 'Pierra Gasly') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/Gasly.png';
+                        }
+                        if (pilotos == 'Mick Schumacher') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/MSchumacher.png';
+                        }
+                        if (pilotos == 'Sebastian Vettel') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/Vettel.png';
+                        }
+                        if (pilotos == 'Sergio Perez') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/Perez.png';
+                        }
+                        if (pilotos == 'Valtteri Bottas') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/Bottas.png';
+                        }
+                        if (pilotos == 'Yuki Tsunoda') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/Tsunoda.png';
+                        }
+                        if (pilotos == 'Zhou Guanyu') {
+                            div_piloto.innerHTML = `${pilotos}`
+                            img_piloto.src = '../assets/img/Zhou.png';
+                        }
+
+                        if (equipes == 'AlfaRomeo') {
+                            div_equipe.innerHTML = `${equipes}`
+                            img_equipe.src = '../assets/img/AlfaRomeo.png';
+                        }
+                        if (equipes == 'AlphaTauri') {
+                            div_equipe.innerHTML = `${equipes}`
+                            img_equipe.src = '../assets/img/AlphaTauri.png';
+                        }
+                        if (equipes == 'Alpine') {
+                            div_equipe.innerHTML = `${equipes}`
+                            img_equipe.src = '../assets/img/Alpine.png';
+                        }
+                        if (equipes == 'AstonMartin') {
+                            div_equipe.innerHTML = `${equipes}`
+                            img_equipe.src = '../assets/img/AstonMartin.png';
+                        }
+                        if (equipes == 'Ferrari') {
+                            div_equipe.innerHTML = `${equipes}`
+                            img_equipe.src = '../assets/img/Ferrari.png';
+                        }
+                        if (equipes == 'Haas') {
+                            div_equipe.innerHTML = `${equipes}`
+                            img_equipe.src = '../assets/img/Haas.png';
+                        }
+                        if (equipes == 'McLaren') {
+                            div_equipe.innerHTML = `${equipes}`
+                            img_equipe.src = '../assets/img/McLaren.png';
+                        }
+                        if (equipes == 'Mercedes') {
+                            div_equipe.innerHTML = `${equipes}`
+                            img_equipe.src = '../assets/img/Mercedes.png';
+                        }
+                        if (equipes == 'RedBull') {
+                            div_equipe.innerHTML = `${equipes}`
+                            img_equipe.src = '../assets/img/RedBull.png';
+                        }
+                        if (equipes == 'Williams') {
+                            div_equipe.innerHTML = `${equipes}`
+                            img_equipe.src = '../assets/img/Williams.png';
+                        }
+
+                    }
+
+                })
+
+            } else {
+
+                throw("Houve um erro ao exibir piloto e equipe");
+
+            }
+        
+        }).catch(function (resposta) {
+            console.log(`${resposta}`);
+        });
+
+        return false;   
 
     }
 

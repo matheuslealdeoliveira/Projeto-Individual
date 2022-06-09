@@ -28,3 +28,6 @@ SELECT * FROM favorito;
 
 -- SELECIONAR MEDIA E TENTATIVAS 
 SELECT ROUND(AVG(desempenho),2) AS 'media', COUNT(fkUsuario) AS 'tentativas' FROM quiz WHERE fkUsuario = 1; 
+
+-- SELECIONAR PILOTO E EQUIPE
+ SELECT piloto AS 'pilotos', equipe AS 'equipes' FROM favorito WHERE idUsuario = 1; 

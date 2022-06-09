@@ -761,4 +761,27 @@ a {
     font-weight: 500;
     text-align: center;
 }
+
+#div_piloto {
+    margin-top: 10px;
+    color: #FFFFFF;
+    font-size: 38px;
+    text-align: center;
+}
+
+#div_equipe {
+    margin-top: 10px;
+    color: #FFFFFF;
+    font-size: 38px;
+    text-align: center;
+}
+
+#img_piloto {
+    height: 170px;
+}
+
+#img_equipe {
+    margin-top: 50px;
+    height: 100px;
+}
 /* FIM PERFIL */

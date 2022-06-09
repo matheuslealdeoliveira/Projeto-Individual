@@ -14,6 +14,9 @@ router.post("/carregarNotas", function (req, res) {
 router.post("/salvarFav", function (req, res) {
     perfilController.salvarFav(req, res);
 })
+router.post("/carregarFav", function (req, res) {
+    perfilController.carregarFav(req, res);
+})
 
 
 module.exports = router;
