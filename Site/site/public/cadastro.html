@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/style/style.css">
     <script src="./assets/js/funcoes.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Cadastro</title>
 </head>
 <body>
@@ -76,9 +77,51 @@
       var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
       if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-          subtitulo.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-
+        Swal.fire({
+          icon: 'error',
+          iconColor: "#FFFFFF",
+          title: "Oops...",
+          color: "#FFFFFF",
+          background: "#000000",
+          text: "Preencha todos os campos",
+          showConfirmButton: false,
+          showDenyButton: true,
+          denyButtonText: "OK",
+          denyButtonColor: "#363636",
+        });
           return false;
+      }
+
+      if (senhaVar != confirmacaoSenhaVar) {
+        Swal.fire({
+          icon: 'error',
+          iconColor: "#FFFFFF",
+          title: "Oops...",
+          color: "#FFFFFF",
+          background: "#000000",
+          text: "As senhas devem ser iguais",
+          showConfirmButton: false,
+          showDenyButton: true,
+          denyButtonText: "OK",
+          denyButtonColor: "#363636",
+        });
+        return false;
+      }
+
+      if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+        Swal.fire({
+          icon: 'error',
+          iconColor: "#FFFFFF",
+          title: "Oops...",
+          color: "#FFFFFF",
+          background: "#000000",
+          text: "E-mail inválido",
+          showConfirmButton: false,
+          showDenyButton: true,
+          denyButtonText: "OK",
+          denyButtonColor: "#363636",
+        });
+        return false;
       }
 
       fetch("/usuarios/cadastrar", {
@@ -98,17 +141,34 @@
 
           if (resposta.ok) {
 
-              subtitulo.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login";
+            Swal.fire({
+              icon: 'sucesss',
+              iconColor: "#FFFFFF",
+              color: "#FFFFFF",
+              background: "#000000",
+              text: "Cadastro realizado com sucesso, você será redirecionado para a tela de login",
+              confirmButtonColor: '#363636',
+              willClose: () => {
+                window.location = './login.html';
+              }
+            });
 
               console.log("Sucesso ao realizar o cadastro");
 
-              setTimeout(() => {
-                  window.location = "login.html";
-              }, "2000")
-              
           } else {
 
-            subtitulo.innerHTML = "Email já cadastrado";
+            Swal.fire({
+              icon: 'error',
+              iconColor: "#FFFFFF",
+              title: "Oops...",
+              color: "#FFFFFF",
+              background: "#000000",
+              text: "E-mail já cadastrado",
+              showConfirmButton: false,
+              showDenyButton: true,
+              denyButtonText: "OK",
+              denyButtonColor: "#363636",
+            });
 
             throw ("Houve um erro ao tentar realizar o cadastro!");
           

@@ -158,7 +158,6 @@ body {
   .banner2 .container {
     display: flex;
     justify-content: center;
-    align-items: center;
   }
   
   .cadastro {
@@ -166,7 +165,7 @@ body {
     width: 35%;
     height: 500px;
     background-color: #363636;
-    border-radius: 40px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -198,7 +197,7 @@ body {
   }
 
   .cadastro .input {
-    border-radius: 30px;
+    border-radius: 10px;
     text-align: center;
     width: 80%;
     height: 60px;
@@ -224,11 +223,11 @@ body {
 
   /* INICIO LOGIN */
   .login {
-    margin-top: 100px;
+    margin-top: 30px;
     width: 35%;
-    height: 450px;
+    height: 500px;
     background-color: #363636;
-    border-radius: 40px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -243,7 +242,7 @@ body {
     margin: 10px;
     width: 80%;
     height: 60px;
-    border-radius: 30px;
+    border-radius: 300px;
   }
 
   .login .titulo {
@@ -260,7 +259,7 @@ body {
   }
 
   .login .input {
-    border-radius: 30px;
+    border-radius: 10px;
     text-align: center;
     width: 80%;
     height: 60px;

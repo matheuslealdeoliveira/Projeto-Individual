@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/style/style.css">
     <script src="./assets/js/funcoes.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Login</title>
 </head>
 <body>
@@ -68,6 +69,18 @@
       var senhaVar = senha_input.value;
 
       if (emailVar == "" || senhaVar == "") {
+          Swal.fire({
+            icon: 'error',
+            iconColor: "#FFFFFF",
+            title: "Oops...",
+            color: "#FFFFFF",
+            background: "#000000",
+            text: "Preencha todos os campos",
+            showConfirmButton: false,
+            showDenyButton: true,
+            denyButtonText: "OK",
+            denyButtonColor: "#363636",
+          });
           return false;
       }
 
@@ -90,7 +103,17 @@
 
           if (resposta.ok) {
 
-            subtitulo.innerHTML = "Login realizado com sucesso";
+            Swal.fire({
+              icon: 'sucesss',
+              iconColor: "#00FFF00",
+              color: "#FFFFFF",
+              background: "#000000",
+              text: "Login realizado com sucesso",
+              confirmButtonColor: '#363636',
+              willClose: () => {
+                window.location = './content/perfil.html';
+              }
+            });
 
               console.log("Sucesso ao realizar login");
 
@@ -102,15 +125,22 @@
                   sessionStorage.NOME_USUARIO = json.nome;
                   sessionStorage.ID_USUARIO = json.id;
 
-                  setTimeout(function () {
-                      window.location = "./content/perfil.html";
-                  }, 1000); 
-
               });
 
           } else {
 
-            subtitulo.innerHTML = "Credenciais incorretas";
+            Swal.fire({
+              icon: 'error',
+              iconColor: "#FFFFFF",
+              title: "Oops...",
+              color: "#FFFFFF",
+              background: "#000000",
+              text: "Credenciais incorretas",
+              showConfirmButton: false,
+              showDenyButton: true,
+              denyButtonText: "OK",
+              denyButtonColor: "#363636",
+            });
 
             throw("Houve um erro ao tentar realizar o login!");
 

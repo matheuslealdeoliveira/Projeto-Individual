@@ -17,7 +17,8 @@ CREATE TABLE quiz (
 ) AUTO_INCREMENT = 1000;
 
 CREATE TABLE favorito (
-  idUsuario INT PRIMARY KEY,
+  fkUsuario INT UNIQUE,
+  FOREIGN KEY (fkUsuario) REFERENCES usuario(id),
   piloto VARCHAR(40),
   equipe VARCHAR(40)
 );
@@ -30,4 +31,4 @@ SELECT * FROM favorito;
 SELECT ROUND(AVG(desempenho),2) AS 'media', COUNT(fkUsuario) AS 'tentativas' FROM quiz WHERE fkUsuario = 1; 
 
 -- SELECIONAR PILOTO E EQUIPE
- SELECT piloto AS 'pilotos', equipe AS 'equipes' FROM favorito WHERE idUsuario = 1; 
+ SELECT piloto AS 'pilotos', equipe AS 'equipes' FROM favorito WHERE fkUsuario = 1; 

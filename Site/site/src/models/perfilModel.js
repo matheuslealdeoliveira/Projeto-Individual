@@ -21,7 +21,7 @@ function carregarNotas(id) {
 function salvarFav(id, piloto, equipe) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function salvarFav():", id, piloto, equipe)
     var instrucao = `
-        INSERT INTO favorito (idUsuario, piloto, equipe) VALUES ('${id}', '${piloto}', '${equipe}'); 
+        INSERT INTO favorito (fkUsuario, piloto, equipe) VALUES ('${id}', '${piloto}', '${equipe}'); 
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -30,7 +30,7 @@ function salvarFav(id, piloto, equipe) {
 function carregarFav(id) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function carregarFav():", id)
     var instrucao = `
-        SELECT piloto AS 'pilotos', equipe AS 'equipes' FROM favorito WHERE idUsuario = ${id}; 
+        SELECT piloto AS 'pilotos', equipe AS 'equipes' FROM favorito WHERE fkUsuario = ${id}; 
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/style/stylecontent.css">
     <script src="../assets/js/funcoes.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Perfil</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
 </head>
 <body onload="validarSessao(), carregar(), carregarFav()">
     
@@ -110,8 +111,9 @@
                 </div>
             </div>
 
-            <button id="btescolher" class="botao" onclick="escolher()" style="display: block;">Escolher</button>
-
+            <div id="btescolher" style="display: block;">
+                <button class="botao" onclick="escolher()" style="display: block;">Escolher</button>
+            </div>
         </div>
 
     </div>
@@ -182,7 +184,18 @@
         var equipeVar = equipes
         
         if (pilotoVar == 0 || equipeVar == 0) {
-            alert(`Escolha o piloto e equipe favorita`);
+            Swal.fire({
+                icon: 'error',
+                iconColor: "#FFFFFF",
+                title: "Oops...",
+                color: "#FFFFFF",
+                background: "#000000",
+                text: "Escolha seu piloto e equipe",
+                showConfirmButton: false,
+                showDenyButton: true,
+                denyButtonText: "OK",
+                denyButtonColor: "#363636",
+            });
             validacao = false
         } if (pilotoVar != 0 && equipeVar != 0) {
             validacao = true
@@ -207,12 +220,17 @@
 
                     escolherPiloto.style.display = 'none';
                     escolherEquipe.style.display = 'none';
-                    alert(`Cadastrado com sucesso`);
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, "2000")
-            
-
+                    Swal.fire({
+                        icon: 'sucesss',
+                        iconColor: "#FFFFFF",
+                        color: "#FFFFFF",
+                        background: "#000000",
+                        text: "Piloto e equipe cadastrado",
+                        confirmButtonColor: '#363636',
+                        willClose: () => {
+                            window.location.reload();
+                        }
+                    });
                 
                 } else {
                 
@@ -254,6 +272,7 @@
                         
                         escolherPiloto.style.display = 'none';
                         escolherEquipe.style.display = 'none';
+                        btescolher.style.display = 'none';
                     
                         if (pilotos == 'Alexander Albon') {
                             div_piloto.innerHTML = `${pilotos}`
@@ -311,7 +330,7 @@
                             div_piloto.innerHTML = `${pilotos}`
                             img_piloto.src = '../assets/img/Latifi.png';
                         }
-                        if (pilotos == 'Pierra Gasly') {
+                        if (pilotos == 'Pierre Gasly') {
                             div_piloto.innerHTML = `${pilotos}`
                             img_piloto.src = '../assets/img/Gasly.png';
                         }
