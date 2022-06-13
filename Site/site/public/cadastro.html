@@ -107,6 +107,22 @@
         });
         return false;
       }
+      
+      if (senhaVar.length < 6) {
+        Swal.fire({
+          icon: 'error',
+          iconColor: "#FFFFFF",
+          title: "Oops...",
+          color: "#FFFFFF",
+          background: "#000000",
+          text: "A senha deve conter no mínimo 6 caracteres",
+          showConfirmButton: false,
+          showDenyButton: true,
+          denyButtonText: "OK",
+          denyButtonColor: "#363636",
+        });
+        return false;
+      }
 
       if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
         Swal.fire({
